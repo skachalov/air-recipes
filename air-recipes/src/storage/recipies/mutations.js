@@ -4,10 +4,15 @@ export default {
     },
     setCuisinesIncluded(state, cuisinesIdxs) {
         state.cuisinesIncludedDefault = [...cuisinesIdxs]
-        state.cuisinesIncludedChoised = [...state.cuisinesIncludedDefault]
+        state.cuisinesIncludedChosen = [...state.cuisinesIncludedDefault]
     },
     setMaxAndMinCaloricity(state, caloricity) {
         state.caloricityDefault = { min: caloricity.min, max: caloricity.max }
-        state.caloricityChoised = {...state.caloricityDefault}
+        state.caloricityChosen = {...state.caloricityDefault}
+    },
+    setFilterParamsToDefault(state) {
+        state.searchLine = ""
+        state.cuisinesIncludedChoised = [ ...state.cuisinesIncludedDefault ]
+        state.caloricityChosen = { ...state.caloricityDefault }
     }
 }

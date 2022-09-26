@@ -2,9 +2,9 @@ export default {
     getRecipes(state) {
         let regex = new RegExp('^' + state.searchLine, 'i')
         return state.recipes.filter(r => regex.test(r.title)
-            && r.caloricity > state.caloricityChoised.min
-            && r.caloricity < state.caloricityChoised.max
-            && state.cuisinesIncludedChoised.indexOf(r.cuisine.id) !== -1)
+            && r.caloricity >= state.caloricityChosen.min
+            && r.caloricity <= state.caloricityChosen.max
+            && state.cuisinesIncludedChosen.indexOf(r.cuisine.id) !== -1)
     },
     getCuisines(state) {
         const cuisines = state.recipes.map(r => r.cuisine)

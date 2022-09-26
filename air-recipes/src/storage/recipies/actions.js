@@ -6,11 +6,9 @@ export default {
             .then(response => {
                 if (response.status === 200) {
                     context.commit('setRecipes', response.data)
+                    context.commit('setCuisinesIncluded', context.getters.getCuisinesId)
+                    context.commit('setMaxAndMinCaloricity', context.getters.getCaloricityRange)
                 }
-            })
-            .then(() => {
-                context.commit('setCuisinesIncluded', context.getters.getCuisinesId)
-                context.commit('setMaxAndMinCaloricity', context.getters.getCaloricityRange)
             })
     }
 }

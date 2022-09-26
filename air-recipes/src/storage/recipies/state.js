@@ -1,7 +1,8 @@
 export default {
     recipes: [],
     searchLine: "",
-    minCaloricityDefault: 0,
-    maxCaloricityDefault: Number.MAX_VALUE,
-    cuisineIncludedDefault: []
+    caloricityDefault: { min: 0, max: Number.MAX_VALUE },
+    caloricityChoised: { min: 0, max: Number.MAX_VALUE },
+    cuisinesIncludedDefault: [],
+    cuisinesIncludedChoised: []
 }

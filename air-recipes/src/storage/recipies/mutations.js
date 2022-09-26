@@ -1,12 +1,13 @@
 export default {
     setRecipes(state, recipes) {
-        state.recipes = recipes
+        state.recipes = recipes.recipes
     },
     setCuisinesIncluded(state, cuisinesIdxs) {
-        state.cuisineIncludedDefault = cuisinesIdxs
+        state.cuisinesIncludedDefault = [...cuisinesIdxs]
+        state.cuisinesIncludedChoised = [...state.cuisinesIncludedDefault]
     },
     setMaxAndMinCaloricity(state, caloricity) {
-        state.minCaloricityDefault = caloricity.min
-        state.maxCaloricityDefault = caloricity.max
+        state.caloricityDefault = { min: caloricity.min, max: caloricity.max }
+        state.caloricityChoised = {...state.caloricityDefault}
     }
 }

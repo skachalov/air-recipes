@@ -9,7 +9,7 @@ export default {
                 }
             })
             .then(() => {
-                context.commit('setCuisinesIncluded', context.getters.getCuisines)
+                context.commit('setCuisinesIncluded', context.getters.getCuisinesId)
                 context.commit('setMaxAndMinCaloricity', context.getters.getCaloricityRange)
             })
     }

@@ -8,5 +8,9 @@ export default {
                     context.commit('setRecipes', response.data)
                 }
             })
+            .then(() => {
+                context.commit('setCuisinesIncluded', context.getters.getCuisines)
+                context.commit('setMaxAndMinCaloricity', context.getters.getCaloricityRange)
+            })
     }
 }

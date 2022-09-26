@@ -14,5 +14,9 @@ export default {
                 cuisinesUniqueId.splice(0, idx).concat(cuisinesUniqueId.splice(idx + 1))
             return true
         })
+    },
+    getCaloricityRange(state) {
+        const calories = state.recipes.recipes.map(r => r.caloricity)
+        return { min: Math.min(...calories), max: Math.max(...calories) }
     }
 }

@@ -1,14 +1,28 @@
-import axios from "axios";
+import {fetchGetRecipes} from "@/services/API/recipes";
+import {viewModel} from "@/storage";
 
 export default {
-    async fetchGetRecipes(context) {
-        await axios.get("https://test.kode-t.ru/list.json")
-            .then(response => {
-                if (response.status === 200) {
-                    context.commit('setRecipes', response.data)
-                    context.commit('setCuisinesIncluded', context.getters.getCuisinesId)
-                    context.commit('setMaxAndMinCaloricity', context.getters.getCaloricityRange)
-                }
-            })
+    async fetchRecipes(context) {
+        try {
+            const response = await fetchGetRecipes()
+            viewModel.getRecipewViewModal().setRecipes(response.data)
+            viewModel.getRecipewViewModal().setCuisinesIncluded(context.getters.getCuisinesId)
+            viewModel.getRecipewViewModal().setMaxAndMinCaloricity(context.getters.getCaloricityRange)
+        }
+        catch (e) {
+            console.log(e)
+        }
+    },
+    setRecipes({ commit }, recipes) {
+        commit('setRecipes', recipes)
+    },
+    setCuisinesIncluded({ commit }, cuisinesIdxs) {
+        commit('setCuisinesIncluded', cuisinesIdxs)
+    },
+    setMaxAndMinCaloricity({ commit }, caloricity) {
+        commit('setMaxAndMinCaloricity', caloricity)
+    },
+    setFilterParamsToDefault({ commit }) {
+        commit('setFilterParamsToDefault')
     }
 }

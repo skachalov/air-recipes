@@ -4,8 +4,5 @@ import actions from "@/storage/recipes/actions";
 import mutations from "@/storage/recipes/mutations";
 
 export default {
-    state: {...state},
-    getters: {...getters},
-    actions: {...actions},
-    mutations: {...mutations}
+    state, getters, actions, mutations
 }

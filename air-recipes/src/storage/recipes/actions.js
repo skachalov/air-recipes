@@ -5,9 +5,9 @@ export default {
     async fetchRecipes(context) {
         try {
             const response = await fetchGetRecipes()
-            viewModel.getRecipewViewModal().setRecipes(response.data)
-            viewModel.getRecipewViewModal().setCuisinesIncluded(context.getters.getCuisinesId)
-            viewModel.getRecipewViewModal().setMaxAndMinCaloricity(context.getters.getCaloricityRange)
+            viewModel.getRecipesViewModal().setRecipes(response.data)
+            viewModel.getRecipesViewModal().setCuisinesIncluded(context.getters.getCuisinesId)
+            viewModel.getRecipesViewModal().setMaxAndMinCaloricity(context.getters.getCaloricityRange)
         }
         catch (e) {
             console.log(e)

@@ -1,10 +1,13 @@
 import {createStore} from "vuex";
 import recipes from "@/storage/recipes";
+import recipe from "@/storage/recipe";
 import RecipesViewModel from "@/model/recipesViewModel";
+import RecipeViewModel from "@/model/recipeViewModel";
 
 const store = createStore({
     modules: {
-        recipes
+        recipes,
+        recipe
     }
 })
 
@@ -14,10 +17,14 @@ class ViewModelSingleton {
         if (!ViewModelSingleton._instance) {
             ViewModelSingleton._instance = this
             this._recipesViewModal = new RecipesViewModel(store)
+            this._recipeViewModal = new RecipeViewModel(store)
         }
     }
-    getRecipewViewModal() {
+    getRecipesViewModal() {
         return this._recipesViewModal
+    }
+    getRecipeViewModal() {
+        return this._recipeViewModal
     }
 }
 

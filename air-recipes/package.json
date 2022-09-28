@@ -11,6 +11,7 @@
     "@mdi/font": "5.9.55",
     "axios": "0.27.2",
     "core-js": "3.8.3",
+    "fs.promises": "0.1.2",
     "roboto-fontface": "*",
     "vue": "3.2.13",
     "vue-router": "4.1.5",
@@ -25,7 +26,9 @@
     "@vue/cli-plugin-eslint": "5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "7.32.0",
-    "eslint-plugin-vue": "8.0.3"
+    "eslint-plugin-vue": "8.0.3",
+    "vue-cli-plugin-vuetify": "2.5.8",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
   },
   "eslintConfig": {
     "root": true,

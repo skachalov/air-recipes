@@ -7,6 +7,10 @@ export default class RecipesViewModel {
         this._store.dispatch("setRecipes", recipes)
     }
 
+    setSearchLine(searchLine) {
+        this._store.dispatch('setSearchLine', searchLine)
+    }
+
     setCuisinesIncluded(cuisinesIdxs) {
         this._store.dispatch("setCuisinesIncluded", cuisinesIdxs)
     }

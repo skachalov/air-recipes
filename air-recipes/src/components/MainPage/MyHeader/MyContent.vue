@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-import BaseTitle from "@/components/MyHeader/BaseTitle";
-import SearchBar from "@/components/MyHeader/SearchBar";
+  import BaseTitle from "@/components/MainPage/MyHeader/BaseTitle";
+  import SearchBar from "@/components/MainPage/MyHeader/SearchBar";
 </script>
 
 <style scoped>

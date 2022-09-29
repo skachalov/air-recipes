@@ -2,6 +2,9 @@ export default {
     setRecipes(state, recipes) {
         state.recipes = recipes.recipes
     },
+    setSearchLine(state, searchLine) {
+      state.searchLine = searchLine
+    },
     setCuisinesIncluded(state, cuisinesIdxs) {
         state.cuisinesIncludedDefault = [...cuisinesIdxs]
         state.cuisinesIncludedChosen = [...state.cuisinesIncludedDefault]

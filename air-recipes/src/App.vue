@@ -1,12 +1,11 @@
 <template>
-  <v-app>
+  <v-app >
     <v-main>
-      <my-header />
+      <main-page />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-import MyHeader from "@/components/MyHeader/MyHeader";
-
+import MainPage from "@/pages/MainPage"
 </script>

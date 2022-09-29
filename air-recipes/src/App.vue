@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <my-input v-model="refStr"></my-input>
+      <my-input v-model="refStr" />
     </v-main>
   </v-app>
 </template>

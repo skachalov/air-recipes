@@ -9,9 +9,6 @@
     </v-row>
 </template>
 
-<script setup>
-</script>
-
 <style scoped>
 .title {
   font-size: 64px;

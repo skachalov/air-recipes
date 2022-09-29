@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-import FilterButton from "@/components/MainPage/MyHeader/MyContent/FilterButton";
-import MyInput from "@/components/MainPage/MyHeader/MyContent/MyInput";
+import FilterButton from "@/components/MainPage/MyHeader/MyContent/SearchBar/FilterButton";
+import MyInput from "@/components/MainPage/MyHeader/MyContent/SearchBar/MyInput";
 import { viewModel } from "@/storage";
 import { ref } from "vue";
 

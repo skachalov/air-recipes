@@ -1,5 +1,5 @@
 <template>
-    <v-container class="pa-0 overflow-hidden" style="height: 600px;" fluid>
+    <v-container class="pa-0 overflow-hidden" style="height: 600px" fluid>
       <v-row>
         <v-col class="pa-0" cols="4">
           <my-content />
@@ -12,6 +12,6 @@
 </template>
 
 <script setup>
-import MyContent from "@/components/MainPage/MyHeader/MyContent";
+import MyContent from "@/components/MainPage/MyHeader/MyContent/MyContent";
 import HeaderImage from "@/components/MainPage/MyHeader/HeaderImage";
 </script>

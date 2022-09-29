@@ -1,18 +1,14 @@
 <template>
   <v-app>
     <v-main>
-
+      <my-input v-model="refStr" />
     </v-main>
   </v-app>
 </template>
 
-<script>
-export default {
-  name: 'App',
+<script setup>
+import MyInput from "@/components/MyInput"
+import {ref} from "vue";
 
-
-  data: () => ({
-    //
-  }),
-}
+const refStr = ref("")
 </script>

@@ -16,7 +16,7 @@
 
 <script setup>
 import FilterButton from "@/components/MainPage/MyHeader/MyContent/SearchBar/FilterButton";
-import MyInput from "@/components/MainPage/MyHeader/MyContent/SearchBar/MyInput";
+import MyInput from "@/components/MainPage/MyHeader/MyContent/SearchBar/BaseInput";
 import { viewModel } from "@/storage";
 import { ref } from "vue";
 

@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-  import MyHeader from "@/components/MainPage/MyHeader/MyHeader";
+  import MyHeader from "@/components/MainPage/MyHeader/BaseHeader";
 </script>

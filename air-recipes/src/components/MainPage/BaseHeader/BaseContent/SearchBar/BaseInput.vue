@@ -41,6 +41,3 @@
     emit("update:modelValue", "")
   }
 </script>
-
-<style scoped>
-</style>

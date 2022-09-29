@@ -8,6 +8,3 @@
     <v-icon color="black">mdi-filter-variant</v-icon>
   </v-btn>
 </template>
-
-<style scoped>
-</style>

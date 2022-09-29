@@ -1,16 +1,14 @@
 <template>
-  <v-app>
+  <v-app >
     <v-main>
-      <my-input v-model="refStr" />
-      <filter-button />
+      <main-page />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-import MyInput from "@/components/MyInput"
-import FilterButton from "@/components/FilterButton"
-import {ref} from "vue";
-
-const refStr = ref("")
+import MainPage from "@/pages/MainPage"
 </script>
+
+<style>
+</style>

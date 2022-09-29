@@ -12,6 +12,6 @@
 </template>
 
 <script setup>
-import MyContent from "@/components/MainPage/MyHeader/MyContent/BaseContent";
-import HeaderImage from "@/components/MainPage/MyHeader/HeaderImage";
+import MyContent from "@/components/MainPage/BaseHeader/BaseContent/BaseContent";
+import HeaderImage from "@/components/MainPage/BaseHeader/HeaderImage";
 </script>

@@ -1,7 +1,7 @@
 <template>
   <v-row class="align-end">
     <v-col cols="9">
-      <my-input
+      <base-input
           v-model="searchLine"
           @keydown.enter="searchRecipes"
       />
@@ -16,7 +16,7 @@
 
 <script setup>
 import FilterButton from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/FilterButton";
-import MyInput from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/BaseInput";
+import BaseInput from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/BaseInput";
 import { viewModel } from "@/storage";
 import { ref } from "vue";
 

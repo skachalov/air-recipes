@@ -1,16 +1,16 @@
 <template>
   <v-card
-      class="mx-auto"
-      max-width="348"
+      class="mx-auto base-card"
+      :class="{'evelate': mouseoverCard}"
+      width="348"
       height="384"
-      style="cursor: pointer"
-      :class="{'on-hover': hover}"
-      :elevation="hover ? 16 : 2"
+      @mouseover="mouseoverCard = true"
+      @mouseleave="mouseoverCard = false"
       @click="pushIdToUrl"
   >
     <v-img
         :src=recipe.thumbnail
-        height="200px"
+        height="200"
         cover
     >
       <v-item-group
@@ -43,13 +43,14 @@
 </template>
 
 <script setup>
-  import { defineProps } from "vue"
-  import { useRoute } from "vue-router"
+  import { ref, defineProps } from "vue"
   import BaseChip from "@/components/BaseCard/BaseChip"
 
   defineProps({
     recipe: Object
   })
+
+  const mouseoverCard = ref(false)
 
   function formatTime(time) {
     return time / 60 <= 60
@@ -62,10 +63,14 @@
       ? number
       : number.toFixed(1)
   }
-
-  const route = useRoute()
-
-  function pushIdToUrl() {
-    console.log(route.params)
-  }
 </script>
+
+<style scoped>
+  .base-card {
+    cursor: pointer;
+    transition: .3s
+  }
+  .evelate {
+    transform: translateY(-5px);
+  }
+</style>

@@ -3,6 +3,6 @@
       variant="filter"
       style="background-color: white"
   >
-    <slot></slot>
+    <slot />
   </v-chip>
 </template>

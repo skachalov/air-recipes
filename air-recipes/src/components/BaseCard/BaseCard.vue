@@ -45,24 +45,13 @@
 <script setup>
   import { ref, defineProps } from "vue"
   import BaseChip from "@/components/BaseCard/BaseChip"
+  import formatTime from "@/helpers/formatTime"
 
   defineProps({
     recipe: Object
   })
 
   const mouseoverCard = ref(false)
-
-  function formatTime(time) {
-    return time / 60 <= 60
-      ? `${formatNumber(time / 60)} min`
-      : `${formatNumber(time / 60 / 60)} hours`
-  }
-
-  function formatNumber(number) {
-    return Number.isInteger(number)
-      ? number
-      : number.toFixed(1)
-  }
 </script>
 
 <style scoped>

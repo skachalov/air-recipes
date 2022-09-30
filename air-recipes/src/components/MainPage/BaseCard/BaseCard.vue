@@ -1,6 +1,6 @@
 <template>
   <v-card
-      class="mx-auto base-card"
+      class="mx-auto base-card ms-3 me-3 mb-6"
       :class="{'evelate': mouseoverCard}"
       width="348"
       height="384"
@@ -29,23 +29,24 @@
       </v-item-group>
     </v-img>
     <v-card-title
-        class="mt-6 pt-0 pl-6 pr-6"
+        class="mt-6 pt-0 pl-6 pr-6 text-wrap"
     >
       <h3>{{recipe.title}}</h3>
     </v-card-title>
-    <v-card-subtitle
-        class="text-black pl-6 pr-6"
-        style="opacity: 1"
+    <v-card-text
+        class="pl-6 pr-6 text-break"
+        style="font-size: 16px"
     >
-      {{recipe.description}}
-    </v-card-subtitle>
+      {{curWord(recipe.description)}}
+    </v-card-text>
   </v-card>
 </template>
 
 <script setup>
   import { ref, defineProps } from "vue"
-  import BaseChip from "@/components/BaseCard/BaseChip"
+  import BaseChip from "@/components/MainPage/BaseCard/BaseChip"
   import formatTime from "@/helpers/formatTime"
+  import curWord from "@/helpers/curWord";
 
   defineProps({
     recipe: Object
@@ -57,7 +58,7 @@
 <style scoped>
   .base-card {
     cursor: pointer;
-    transition: .3s
+    transition: .5s
   }
   .evelate {
     transform: translateY(-5px);

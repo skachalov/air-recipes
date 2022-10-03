@@ -1,6 +1,6 @@
 <template>
-  <v-app >
-    <v-main>
+  <v-app>
+    <v-main >
       <main-page />
     </v-main>
   </v-app>

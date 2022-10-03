@@ -1,11 +1,11 @@
 <template>
   <v-container class="pt-0 ps-0 pe-0" fluid>
-    <base-header :style="{ height: headerHeight + 'px' }" />
-    <v-container fluid class="ps-16 pe-16">
+    <base-header :height="headerHeight" />
+    <v-container class="ps-16 pe-16" fluid>
       <base-progress v-if="!store.state.recipes.recipes.length" />
       <v-row v-else class="pt-8 justify-center">
         <base-card
-            v-for="recipe in store.getters.getRecipes"
+            v-for="recipe in [...store.getters.getRecipes, ...store.getters.getRecipes]"
             :key="recipe.id"
             :recipe="recipe"
         />
@@ -26,15 +26,14 @@
 
   onMounted(() => {
     viewModel.getRecipesViewModal().fetchRecipes()
-    window.addEventListener('scroll', changeHeaderHeight);
+    window.addEventListener('scroll', changeHeaderHeight)
   })
 
   const DEFAULT_HEADER_HEIGHT = 600
   let headerHeight = ref(DEFAULT_HEADER_HEIGHT)
 
   function changeHeaderHeight() {
-    let scrollVar = window.pageYOffset;
-    console.log(scrollVar)
+    let scrollVar = window.pageYOffset
     headerHeight.value = DEFAULT_HEADER_HEIGHT - scrollVar / 2
   }
 </script>

@@ -14,8 +14,8 @@
 
 <style scoped>
   .content {
-    margin-top: 128px;
-    margin-left: 98px;
+    /*margin-top: 128px;*/
+    /*margin-left: 98px;*/
     height: 192px;
     width: 348px;
   }

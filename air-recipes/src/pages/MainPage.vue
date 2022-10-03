@@ -1,14 +1,16 @@
 <template>
-  <base-header />
-  <v-container fluid class="ps-16 pe-16">
-    <base-progress v-if="!store.state.recipes.recipes.length" />
-    <v-row v-else class="pt-8 justify-center">
+  <v-container class="pt-0 ps-0 pe-0" fluid>
+    <base-header :style="{ height: headerHeight + 'px' }" />
+    <v-container fluid class="ps-16 pe-16">
+      <base-progress v-if="!store.state.recipes.recipes.length" />
+      <v-row v-else class="pt-8 justify-center">
         <base-card
             v-for="recipe in store.getters.getRecipes"
             :key="recipe.id"
             :recipe="recipe"
         />
-    </v-row>
+      </v-row>
+    </v-container>
   </v-container>
 </template>
 
@@ -16,7 +18,7 @@
   import BaseHeader from "@/components/MainPage/BaseHeader/BaseHeader"
   import BaseCard from "@/components/MainPage/BaseCard/BaseCard"
   import BaseProgress from "@/components/BaseProgress"
-  import { onMounted } from "vue"
+  import { onMounted, ref } from "vue"
   import { useStore } from "vuex"
   import { viewModel } from "@/storage"
 
@@ -24,5 +26,15 @@
 
   onMounted(() => {
     viewModel.getRecipesViewModal().fetchRecipes()
+    window.addEventListener('scroll', changeHeaderHeight);
   })
+
+  const DEFAULT_HEADER_HEIGHT = 600
+  let headerHeight = ref(DEFAULT_HEADER_HEIGHT)
+
+  function changeHeaderHeight() {
+    let scrollVar = window.pageYOffset;
+    console.log(scrollVar)
+    headerHeight.value = DEFAULT_HEADER_HEIGHT - scrollVar / 2
+  }
 </script>

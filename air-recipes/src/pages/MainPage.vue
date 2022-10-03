@@ -3,7 +3,11 @@
     <base-header :height="headerHeight" />
     <v-container class="ps-16 pe-16" fluid>
       <base-progress v-if="!store.state.recipes.recipes.length" />
-      <v-row v-else class="pt-8 justify-center">
+      <v-row
+          v-else
+          class="pt-8 justify-center"
+        :style="{ 'margin-top': headerHeight > 460 ? 0 : headerHeight - 10 + 'px' }"
+      >
         <base-card
             v-for="recipe in [...store.getters.getRecipes, ...store.getters.getRecipes]"
             :key="recipe.id"
@@ -34,6 +38,8 @@
 
   function changeHeaderHeight() {
     let scrollVar = window.pageYOffset
-    headerHeight.value = DEFAULT_HEADER_HEIGHT - scrollVar / 2
+
+    if (scrollVar < 282) headerHeight.value = DEFAULT_HEADER_HEIGHT - scrollVar / 2
+    else headerHeight.value = 360
   }
 </script>

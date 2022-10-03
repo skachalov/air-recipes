@@ -1,10 +1,16 @@
 <template>
-  <v-container class="pa-0">
+  <v-container
+      class="pa-0"
+      :style="{ height: height + 'px' }"
+      fluid
+  >
     <v-row
-        :class="{ 'fixed-content': height >= 500, 'sticky-bottom-content': height < 500 }"
+        :class="{ 'fixed-content': height >= 500,
+        'sticky-bottom-content': height < 500 && height >= 400,
+        'sticky-header-content': height < 400 }"
     >
-      <base-title />
-      <search-bar />
+      <base-title :height="height" />
+      <search-bar :height="height" />
     </v-row>
   </v-container>
 </template>
@@ -33,5 +39,13 @@
     width: 348px;
     bottom: 0;
     margin-left: 98px;
+  }
+  .sticky-header-content {
+    position: absolute;
+    display: flex;
+    align-items: end;
+    height: 200px;
+    width: 100%;
+    bottom: 0;
   }
 </style>

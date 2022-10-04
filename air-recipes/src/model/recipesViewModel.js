@@ -3,8 +3,16 @@ export default class RecipesViewModel {
         this._store = recipesStore
     }
 
+    fetchRecipes() {
+        this._store.dispatch('fetchRecipes')
+    }
+
     setRecipes(recipes) {
         this._store.dispatch("setRecipes", recipes)
+    }
+
+    setSearchLine(searchLine) {
+        this._store.dispatch('setSearchLine', searchLine)
     }
 
     setCuisinesIncluded(cuisinesIdxs) {

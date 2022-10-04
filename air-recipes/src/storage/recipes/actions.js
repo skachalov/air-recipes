@@ -16,6 +16,9 @@ export default {
     setRecipes({ commit }, recipes) {
         commit('setRecipes', recipes)
     },
+    setSearchLine({ commit }, searchLine) {
+        commit('setSearchLine', searchLine)
+    },
     setCuisinesIncluded({ commit }, cuisinesIdxs) {
         commit('setCuisinesIncluded', cuisinesIdxs)
     },

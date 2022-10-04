@@ -5,9 +5,10 @@
       fluid
   >
     <v-row
+        class="small-screen-960"
         :class="{ 'fixed-content': height >= 500,
-        'sticky-bottom-content': height < 500 && height >= 400,
-        'sticky-header-content': height < 400 }"
+        'sticky-bottom-content': height < 500 && height >= 450,
+        'sticky-header-content': height < 450 }"
     >
       <base-title :height="height" />
       <search-bar :height="height" />
@@ -47,5 +48,13 @@
     height: 200px;
     width: 100%;
     bottom: 0;
+  }
+  @media (max-width: 960px) {
+    .small-screen-960 {
+      margin-left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
   }
 </style>

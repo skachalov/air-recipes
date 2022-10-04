@@ -27,10 +27,27 @@
   })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .title-container {
+    @media (max-width: 960px) {
+      padding-left: 0 !important;
+      width: 100% !important;
+      height: 75px !important;
+    }
+    @media (max-width: 600px) {
+      height: 25px !important;
+    }
+  }
   .title {
     font-size: 64px;
     width: 100%;
+
+    @media(max-width: 960px) {
+      width: auto !important;
+    }
+    @media (max-width: 600px) {
+      font-size: 48px;
+    }
   }
   .description {
     font-family: Roboto;
@@ -38,23 +55,5 @@
   }
   .padding {
     padding-left: 98px;
-  }
-  @media (max-width: 960px) {
-    .title-container {
-      padding-left: 0;
-      width: 100% !important;
-      height: 75px !important;
-    }
-    .title {
-      width: auto !important;
-    }
-  }
-  @media (max-width: 600px) {
-    .title-container {
-      height: 25px !important;
-    }
-    .title {
-      font-size: 48px;
-    }
   }
 </style>

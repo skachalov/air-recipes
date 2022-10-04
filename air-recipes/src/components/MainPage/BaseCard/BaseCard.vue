@@ -1,6 +1,6 @@
 <template>
   <v-card
-      class="mx-auto base-card ms-3 me-3 mb-6 card"
+      class="mx-auto base-card ms-3 me-3 mb-6"
       :class="{'evelate': mouseoverCard}"
       width="348"
       height="384"
@@ -55,17 +55,16 @@
   const mouseoverCard = ref(false)
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .base-card {
     cursor: pointer;
     transition: transform .5s;
+
+    @media (max-width: 600px) {
+      height: 425px !important;
+    }
   }
   .evelate {
     transform: translateY(-5px);
-  }
-  @media (max-width: 600px) {
-    .card {
-      height: 425px !important;
-    }
   }
 </style>

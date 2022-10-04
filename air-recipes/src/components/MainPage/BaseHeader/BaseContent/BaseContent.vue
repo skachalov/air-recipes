@@ -26,7 +26,7 @@
   })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .fixed-content {
     margin-top: 128px;
     margin-left: 98px;
@@ -49,8 +49,8 @@
     width: 100%;
     bottom: 0;
   }
-  @media (max-width: 960px) {
-    .screen-960 {
+  .screen-960 {
+    @media (max-width: 960px) {
       margin-left: 0;
       width: 100%;
       display: flex;

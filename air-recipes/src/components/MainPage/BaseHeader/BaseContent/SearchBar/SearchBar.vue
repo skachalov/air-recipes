@@ -45,28 +45,26 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .sticky-header-search-bar {
     margin-bottom: 1%;
     justify-content: end;
   }
-  @media (max-width: 960px) {
-    .text {
+  .text {
+    @media (max-width: 960px) {
       display: flex;
       align-content: start;
       justify-content: center;
     }
-    .input-container {
+  }
+  .input-container {
+    @media (max-width: 960px) {
       max-width: 400px !important;
     }
-  }
-  @media (max-width: 600px) {
-    .input-container {
+    @media (max-width: 600px) {
       max-width: 300px !important;
     }
-  }
-  @media (max-width: 455px) {
-    .input-container {
+    @media (max-width: 455px) {
       max-width: 250px !important;
     }
   }

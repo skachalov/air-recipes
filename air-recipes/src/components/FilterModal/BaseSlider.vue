@@ -10,8 +10,7 @@
       :model-value="modelValue"
       @update:modelValue="updateInput"
       step="5"
-  >
-  </v-range-slider>
+  />
 </template>
 
 <script setup>

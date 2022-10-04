@@ -30,6 +30,7 @@
 <style scoped>
   .title {
     font-size: 64px;
+    width: 100%;
   }
   .description {
     font-family: Roboto;
@@ -44,13 +45,16 @@
       width: 100% !important;
       height: 75px !important;
     }
+    .title {
+      width: auto !important;
+    }
   }
   @media (max-width: 600px) {
+    .title-container {
+      height: 25px !important;
+    }
     .title {
       font-size: 48px;
-    }
-    .title-container {
-      height: 50px !important;
     }
   }
 </style>

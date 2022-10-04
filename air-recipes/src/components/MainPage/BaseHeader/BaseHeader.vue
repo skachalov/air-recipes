@@ -33,7 +33,6 @@
   defineProps({
     height: Number
   })
-
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@
       fluid
   >
     <v-row
-        class="small-screen-960"
+        class="screen-960"
         :class="{ 'fixed-content': height >= 500,
         'sticky-bottom-content': height < 500 && height >= 450,
         'sticky-header-content': height < 450 }"
@@ -50,7 +50,7 @@
     bottom: 0;
   }
   @media (max-width: 960px) {
-    .small-screen-960 {
+    .screen-960 {
       margin-left: 0;
       width: 100%;
       display: flex;

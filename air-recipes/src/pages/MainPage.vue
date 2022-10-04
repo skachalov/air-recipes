@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pt-0 ps-0 pe-0" fluid>
+  <v-container class="pt-0 ps-0 pe-0 pb-16" fluid>
     <base-header :height="headerHeight" />
     <v-container class="ps-16 pe-16" fluid>
       <base-progress v-if="!store.state.recipes.recipes.length" />
@@ -31,36 +31,21 @@
   onMounted(() => {
     viewModel.getRecipesViewModal().fetchRecipes()
     window.addEventListener('resize', updateWidth)
-
-    if (window.innerWidth <= 1320) {
-      headerHeight.value = 360
-      scrollReaction = false
-    }
-
+    updateWidth()
     window.addEventListener('scroll', changeHeaderHeight)
   })
 
+  let scrollReaction = ref(true)
+  const computeMargin = computed(() =>
+      !scrollReaction.value ? '75px' : headerHeight.value > 460 ? 0 : headerHeight.value + 'px')
+
   const DEFAULT_HEADER_HEIGHT = 600
-  let scrollReaction = true
   let headerHeight = ref(DEFAULT_HEADER_HEIGHT)
 
-  // const computeMargin = computed(() => {
-  //   console.log(1 + " " + scrollReaction)
-  //
-  //   if (!scrollReaction) {
-  //     return '100px'
-  //   }
-  //
-  //   return headerHeight.value > 460 ? 0 : headerHeight.value - 10 + 'px'
-  // })
-
-  const computeMargin = computed(() => !scrollReaction ? '100px' : headerHeight.value > 460 ? 0 : headerHeight.value - 10 + 'px')
-
   function changeHeaderHeight() {
-    if (!scrollReaction) return
+    if (!scrollReaction.value) return
 
     let scrollVar = window.pageYOffset
-
     if (scrollVar < 282) headerHeight.value = DEFAULT_HEADER_HEIGHT - scrollVar / 2
     else headerHeight.value = 360
   }
@@ -70,15 +55,13 @@
       if (window.innerWidth <= 960) headerHeight.value = 450
       else headerHeight.value = 360
 
-      scrollReaction = false
+      scrollReaction.value = false
     }
     else {
       headerHeight.value = DEFAULT_HEADER_HEIGHT
       window.scrollTo(0, 0)
 
-      scrollReaction = true
+      scrollReaction.value = true
     }
-
-    console.log(scrollReaction)
   }
 </script>

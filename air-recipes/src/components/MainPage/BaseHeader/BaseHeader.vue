@@ -2,21 +2,21 @@
     <v-container
         class="pa-0 bg-white"
         :style="{ height: height + 'px'}"
-        :class="{ 'sticky-header': height <= 400 }"
+        :class="{ 'sticky-header': height <= 450 }"
         fluid
     >
       <v-row class="ma-0 position-relative">
         <v-col
             class="pa-0"
-            :class="{ 'v-col-4': height > 400,
-            'v-col-11': height <= 400 }"
+            :class="{ 'v-col-4': height > 450,
+            'v-col-12': height <= 450 }"
         >
           <base-content :height="height" />
         </v-col>
         <v-col
                class="image-container pa-0 overflow-hidden"
-               :class="{ 'v-col-8': height > 400 }"
-               v-show="height > 400"
+               :class="{ 'v-col-8': height > 450 }"
+               v-show="height > 450"
                :style="{ height: height + 'px' }"
         >
           <header-image />
@@ -33,7 +33,6 @@
   defineProps({
     height: Number
   })
-
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <v-responsive
-      class="mx-auto rounded-pill border-sm"
+      class="mx-auto rounded-pill border-sm mr-0"
       :class="{'border-opacity-25': inFocus}"
       max-width="276"
       max-height="56"

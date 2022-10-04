@@ -55,10 +55,14 @@
   const mouseoverCard = ref(false)
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .base-card {
     cursor: pointer;
-    transition: .5s
+    transition: transform .5s;
+
+    @media (max-width: 600px) {
+      height: 425px !important;
+    }
   }
   .evelate {
     transform: translateY(-5px);

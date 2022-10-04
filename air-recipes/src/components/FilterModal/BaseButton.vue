@@ -21,7 +21,7 @@
     color: white;
   }
   .light {
-    border-color: #82786A;
+    border-color: #DDDDDD;
     color: #82786A;
   }
 </style>

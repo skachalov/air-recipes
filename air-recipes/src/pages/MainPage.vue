@@ -1,6 +1,10 @@
 <template>
   <v-container class="pt-0 ps-0 pe-0 pb-16" fluid>
-    <base-header />
+    <base-header
+        @clickFilterButton="clickFilterButton"
+        @searchRecipes="searchRecipes"
+        :height="height"
+    />
     <v-container class="ps-16 pe-16" fluid>
       <base-progress v-if="!getRecipes.length" />
       <v-row
@@ -19,19 +23,24 @@
 </template>
 
 <script setup>
-  import BaseHeader from "@/components/MainPage/BaseHeader/BaseHeader"
   import BaseCard from "@/components/MainPage/BaseCard/BaseCard"
   import BaseProgress from "@/components/BaseProgress"
-  import { onMounted, computed } from "vue"
-  import mainPageController from "@/controllers/MainPageController"
+  import BaseHeader from "@/components/MainPage/BaseHeader/BaseHeader"
+  import { defineEmits, defineProps } from "vue"
 
-  onMounted(() => {
-    mainPageController.fetchRecipes()
-    mainPageController.addResizeEvent()
-    mainPageController.updateWidth()
-    mainPageController.addScrollEvent()
+  defineProps({
+    height: Number,
+    getRecipes: Array,
+    computeMargin: String
   })
 
-  const computeMargin = computed(() => mainPageController.computeMargin())
-  const getRecipes = computed(() => mainPageController.getRecipes())
+  const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
+
+  function clickFilterButton() {
+    emits('clickFilterButton')
+  }
+
+  function searchRecipes(searchLine) {
+    emits('searchRecipes', searchLine)
+  }
 </script>

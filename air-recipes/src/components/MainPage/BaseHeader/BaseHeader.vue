@@ -1,23 +1,27 @@
 <template>
     <v-container
         class="pa-0 bg-white"
-        :style="{ height: mainPageController.state.headerHeight.value + 'px'}"
-        :class="{ 'sticky-header': mainPageController.state.headerHeight.value <= 450 }"
+        :style="{ height: height + 'px'}"
+        :class="{ 'sticky-header': height <= 450 }"
         fluid
     >
       <v-row class="ma-0 position-relative">
         <v-col
             class="pa-0"
-            :class="{ 'v-col-4': mainPageController.state.headerHeight.value > 450,
-            'v-col-12': mainPageController.state.headerHeight.value <= 450 }"
+            :class="{ 'v-col-4': height > 450,
+            'v-col-12': height <= 450 }"
         >
-          <base-content />
+          <base-content
+              @clickFilterButton="clickFilterButton"
+              @searchRecipes="searchRecipes"
+              :height="height"
+          />
         </v-col>
         <v-col
                class="image-container pa-0 overflow-hidden"
-               :class="{ 'v-col-8': mainPageController.state.headerHeight.value > 450 }"
-               v-show="mainPageController.state.headerHeight.value > 450"
-               :style="{ height: mainPageController.state.headerHeight.value + 'px' }"
+               :class="{ 'v-col-8': height > 450 }"
+               v-show="height > 450"
+               :style="{ height: height + 'px' }"
         >
           <header-image />
         </v-col>
@@ -28,7 +32,21 @@
 <script setup>
   import BaseContent from "@/components/MainPage/BaseHeader/BaseContent/BaseContent"
   import HeaderImage from "@/components/MainPage/BaseHeader/HeaderImage"
-  import mainPageController from "@/controllers/MainPageController"
+  import { defineProps, defineEmits } from "vue"
+
+  defineProps({
+    height: Number
+  })
+
+  const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
+
+  function clickFilterButton() {
+    emits('clickFilterButton')
+  }
+
+  function searchRecipes(searchLine) {
+    emits('searchRecipes', searchLine)
+  }
 </script>
 
 <style scoped>

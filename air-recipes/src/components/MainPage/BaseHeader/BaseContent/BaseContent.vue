@@ -1,26 +1,43 @@
 <template>
   <v-container
       class="pa-0"
-      :style="{ height: mainPageController.state.headerHeight.value + 'px' }"
+      :style="{ height: height + 'px' }"
       fluid
   >
     <v-row
         class="screen-960"
-        :class="{ 'fixed-content': mainPageController.state.headerHeight.value >= 500,
-        'sticky-bottom-content': mainPageController.state.headerHeight.value < 500
-          && mainPageController.state.headerHeight.value >= 450,
-        'sticky-header-content': mainPageController.state.headerHeight.value < 450 }"
+        :class="{ 'fixed-content': height >= 500,
+        'sticky-bottom-content': height < 500 && height >= 450,
+        'sticky-header-content': height < 450 }"
     >
-      <base-title />
-      <search-bar />
+      <base-title :height="height" />
+      <search-bar
+          @clickFilterButton="clickFilterButton"
+          @searchRecipes="searchRecipes"
+          :height="height"
+      />
     </v-row>
   </v-container>
 </template>
 
 <script setup>
-  import BaseTitle from "@/components/MainPage/BaseHeader/BaseContent/BaseTitle";
-  import SearchBar from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/SearchBar";
-  import mainPageController from "@/controllers/MainPageController"
+  import BaseTitle from "@/components/MainPage/BaseHeader/BaseContent/BaseTitle"
+  import SearchBar from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/SearchBar"
+  import { defineProps, defineEmits } from "vue"
+
+  defineProps({
+    height: Number
+  })
+
+  const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
+
+  function clickFilterButton() {
+    emits('clickFilterButton')
+  }
+
+  function searchRecipes(searchLine) {
+    emits('searchRecipes', searchLine)
+  }
 </script>
 
 <style lang="scss" scoped>

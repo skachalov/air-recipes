@@ -2,7 +2,7 @@
     <v-row
         style="height: 104px; width: 331px;"
         class="ma-0 title-container"
-        :class="{ 'padding': mainPageController.state.headerHeight.value <= 450 }"
+        :class="{ 'padding': height <= 450 }"
     >
       <v-row
           style="height: 80px; width: 331px"
@@ -12,7 +12,7 @@
       </v-row>
       <v-row
           style="width: 206px" class="ma-0"
-          v-if="mainPageController.state.headerHeight.value > 450"
+          v-if="height > 450"
       >
         <span class="description">Best Recipes for Best People</span>
       </v-row>
@@ -20,7 +20,11 @@
 </template>
 
 <script setup>
-  import mainPageController from "@/controllers/MainPageController"
+  import { defineProps } from "vue"
+
+  defineProps({
+    height: Number
+  })
 </script>
 
 <style lang="scss" scoped>

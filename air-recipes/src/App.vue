@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-main >
-      <main-page />
+      <main-page-controller />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-import MainPage from "@/pages/MainPage"
+  import MainPageController from "@/controllers/MainPageController"
 </script>
 
 <style>

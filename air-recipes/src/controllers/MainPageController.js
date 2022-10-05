@@ -67,7 +67,6 @@ class MainPageController {
     }
 
     searchRecipes() {
-        console.log(this.state.searchLine.value)
         viewModel.getRecipesViewModal().setSearchLine(this.state.searchLine.value)
     }
 }

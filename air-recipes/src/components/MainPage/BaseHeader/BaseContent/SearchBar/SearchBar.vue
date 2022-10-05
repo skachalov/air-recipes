@@ -1,48 +1,35 @@
 <template>
   <v-row
       class="align-end text"
-      :class="{ 'sticky-header-search-bar': height < 450 }"
+      :class="{ 'sticky-header-search-bar': mainPageController.state.headerHeight.value < 450 }"
   >
     <v-col
-        :class="{ 'v-col-9': height >= 450, 'v-col-lg-6': height < 450 }"
+        :class="{ 'v-col-9': mainPageController.state.headerHeight.value >= 450,
+        'v-col-lg-6': mainPageController.state.headerHeight.value < 450 }"
         class="v-col-md-8 v-col-sm-6 v-col-xs-7"
     >
       <base-input
           class="input-container"
-          v-model="searchLine"
-          @keydown.enter="searchRecipes"
+          v-model="mainPageController.state.searchLine.value"
+          @keydown.enter="() => mainPageController.searchRecipes()"
       />
     </v-col>
     <v-col
-        :class="{ 'v-col-3': height >= 450, 'v-col-lg-3': height < 450 }"
+        :class="{ 'v-col-3': mainPageController.state.headerHeight.value >= 450,
+        'v-col-lg-3': mainPageController.state.headerHeight.value < 450 }"
         class="v-col-md-4 v-col-sm-2"
     >
       <filter-button
-          @click="switchIsShownModal"
+          @click="mainPageController.switchIsShownModal"
       />
     </v-col>
   </v-row>
 </template>
 
 <script setup>
-  import FilterButton from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/FilterButton";
-  import BaseInput from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/BaseInput";
-  import { viewModel } from "@/storage";
-  import { ref, defineProps } from "vue";
-
-  defineProps({
-    height: Number
-  })
-
-  const searchLine = ref("")
-
-  function switchIsShownModal() {
-    viewModel.getModalViewModel().switchIsShownModal()
-  }
-
-  function searchRecipes() {
-    viewModel.getRecipesViewModal().setSearchLine(searchLine.value)
-  }
+  import FilterButton from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/FilterButton"
+  import BaseInput from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/BaseInput"
+  import mainPageController from "@/controllers/MainPageController"
 </script>
 
 <style lang="scss" scoped>

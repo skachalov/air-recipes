@@ -1,17 +1,18 @@
 <template>
   <v-container
       class="pa-0"
-      :style="{ height: height + 'px' }"
+      :style="{ height: mainPageController.state.headerHeight.value + 'px' }"
       fluid
   >
     <v-row
         class="screen-960"
-        :class="{ 'fixed-content': height >= 500,
-        'sticky-bottom-content': height < 500 && height >= 450,
-        'sticky-header-content': height < 450 }"
+        :class="{ 'fixed-content': mainPageController.state.headerHeight.value >= 500,
+        'sticky-bottom-content': mainPageController.state.headerHeight.value < 500
+          && mainPageController.state.headerHeight.value >= 450,
+        'sticky-header-content': mainPageController.state.headerHeight.value < 450 }"
     >
-      <base-title :height="height" />
-      <search-bar :height="height" />
+      <base-title />
+      <search-bar />
     </v-row>
   </v-container>
 </template>
@@ -19,11 +20,7 @@
 <script setup>
   import BaseTitle from "@/components/MainPage/BaseHeader/BaseContent/BaseTitle";
   import SearchBar from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/SearchBar";
-  import { defineProps } from "vue"
-
-  defineProps({
-    height: Number
-  })
+  import mainPageController from "@/controllers/MainPageController"
 </script>
 
 <style lang="scss" scoped>

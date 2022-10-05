@@ -1,0 +1,48 @@
+<template>
+  <div class="base-checkbox">
+    <label class="text">{{ val }}</label>
+    <v-checkbox
+        class="checkbox"
+        :model-value="selected"
+        :value="val"
+        @click="updateSelected"
+    />
+  </div>
+</template>
+
+<script setup>
+  import { defineProps, defineEmits } from "vue"
+
+  const props = defineProps({
+    val: String,
+    selected: Array
+  })
+
+  const emits = defineEmits(["updateSelected"])
+
+  function updateSelected() {
+    emits("updateSelected", props.val)
+  }
+</script>
+
+<style scoped>
+  .base-checkbox {
+    width: 376px;
+    height: 47px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+    display: flex;
+    justify-content: space-between;
+  }
+  .text {
+    display: flex;
+    align-items: end;
+    height: 42px;
+  }
+  .checkbox {
+    color: #82786A;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+  }
+</style>

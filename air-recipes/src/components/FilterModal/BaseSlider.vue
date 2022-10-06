@@ -7,8 +7,8 @@
       track-size="2px"
       :min="range.min"
       :max="range.max"
-      :model-value="modelValue"
-      @update:modelValue="updateInput"
+      :model-value="selected"
+      @update:modelValue="updateSelectedRange"
       step="5"
   />
 </template>
@@ -18,12 +18,12 @@
 
   defineProps({
     range: Object,
-    modelValue: Array
+    selected: Array
   })
 
-  const emit = defineEmits(["update:modelValue"])
+  const emit = defineEmits(["updateSelectedRange"])
 
-  function updateInput(event) {
-    emit("update:modelValue", event)
+  function updateSelectedRange(event) {
+    emit("updateSelectedRange", event)
   }
 </script>

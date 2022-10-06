@@ -1,10 +1,12 @@
 <template>
   <div class="base-checkbox">
-    <label class="text">{{ val }}</label>
+    <label class="text">
+      {{ val.title }}
+    </label>
     <v-checkbox
         class="checkbox"
         :model-value="selected"
-        :value="val"
+        :value="val.id"
         @click="updateSelected"
     />
   </div>
@@ -14,20 +16,20 @@
   import { defineProps, defineEmits } from "vue"
 
   const props = defineProps({
-    val: String,
+    val: Object,
     selected: Array
   })
 
   const emits = defineEmits(["updateSelected"])
 
   function updateSelected() {
-    emits("updateSelected", props.val)
+    emits("updateSelected", props.val.id)
   }
 </script>
 
 <style scoped>
   .base-checkbox {
-    width: 376px;
+    width: 90%;
     height: 47px;
     padding-bottom: 11px;
     border-bottom: 1px solid rgba(33, 33, 33, 0.08);

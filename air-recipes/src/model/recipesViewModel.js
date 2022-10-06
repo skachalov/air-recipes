@@ -15,12 +15,20 @@ export default class RecipesViewModel {
         this._store.dispatch('setSearchLine', searchLine)
     }
 
+    setCuisines(cuisinesIdxs) {
+        this._store.dispatch("setCuisines", cuisinesIdxs)
+    }
+
     setCuisinesIncluded(cuisinesIdxs) {
         this._store.dispatch("setCuisinesIncluded", cuisinesIdxs)
     }
 
     setMaxAndMinCaloricity(caloricity) {
         this._store.dispatch("setMaxAndMinCaloricity", caloricity)
+    }
+
+    setMaxAndMinCaloricityChosen(caloricity) {
+        this._store.dispatch("setMaxAndMinCaloricityChosen", caloricity)
     }
 
     setFilterParamsToDefault() {

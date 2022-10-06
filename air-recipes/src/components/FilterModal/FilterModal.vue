@@ -5,74 +5,75 @@
       fluid
   >
     <v-container class="modal">
-      <v-row style="height: 60px; padding-left: 16px; padding-right: 8px; margin-bottom: 28px">
-        <v-col
-            cols="10"
-            style="font-size: 24px"
-        >
-          <h3>Filter</h3>
-        </v-col>
-        <v-col
-            class="close-btn"
-            cols="2"
-        >
-          <v-icon
-              color="rgba(130, 120, 106, 1)"
-              style="cursor: pointer"
-          >
-            mdi-close
-          </v-icon>
-        </v-col>
-      </v-row>
+      <modal-header @closeModal="closeModal" />
 
       <v-row class=" justify-center">
         <base-checkbox
             v-for="cuisine in cuisines"
             :key = "cuisine.id"
-            :val = "cuisine.title"
+            :val = "cuisine"
             :selected = "selectedCuisines"
+            @updateSelected="updateSelected"
         ></base-checkbox>
       </v-row>
 
-      <v-row style="padding-top: 72px; width: 90%; margin: 0 auto; display: block">
-        <base-slider style="height: 32px" :range="caloricityRange" v-model="caloricity" />
+      <v-row class="modal-slider">
+        <base-slider
+            style="height: 32px"
+            :range="$store.state.recipes.caloricityDefault"
+            :selected="chosenCaloricity"
+            @updateSelectedRange="updateSelectedRange"
+        />
         <div>Calories, kCal</div>
       </v-row>
 
-      <v-row style="position: absolute; bottom: 32px; width: 98%;">
-        <v-col style="display: flex; justify-content: start; padding-left: 28px">
-          <base-button :is-dark="false">CLEAR</base-button>
-        </v-col>
-        <v-col style="display: flex; justify-content: end; padding-right: 28px">
-          <base-button :is-dark="true">SHOW RECIPES</base-button>
-        </v-col>
-      </v-row>
+      <modal-buttons
+          @clearParams="clearParams"
+          @showRecipes="showRecipes"
+      />
     </v-container>
   </v-container>
 </template>
 
 <script setup>
-  import { ref, defineProps, defineEmits } from "vue"
+  import { defineProps, defineEmits } from "vue"
   import BaseCheckbox from "@/components/FilterModal/BaseCheckbox";
   import BaseSlider from "@/components/FilterModal/BaseSlider";
-  import BaseButton from "@/components/FilterModal/BaseButton";
+  import ModalHeader from "@/components/FilterModal/ModalHeader";
+  import ModalButtons from "@/components/FilterModal/ModalButtons/ModalButtons";
 
   defineProps({
     cuisines: Array,
     selectedCuisines: Array,
-    caloricityRange: Array
+    caloricityRange: Array,
+    chosenCaloricity: Array
   })
 
-  const caloricity = ref([])
-
-  const emits = defineEmits(['closeModal'])
+  const emits =
+      defineEmits(["closeModal", "clearPrams", "showRecipes", "updateSelected", "updateSelectedRange"])
 
   function closeModal() {
-    emits('closeModal')
+    emits("closeModal")
+  }
+
+  function clearParams() {
+    emits("clearParams")
+  }
+
+  function showRecipes() {
+    emits("showRecipes")
+  }
+
+  function updateSelected(val) {
+    emits("updateSelected", val)
+  }
+
+  function updateSelectedRange(val) {
+    emits("updateSelectedRange", val)
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .container {
     position: fixed;
     padding: 0;
@@ -90,9 +91,15 @@
     background-color: white;
     z-index: 4;
     box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.14);
+
+    @media (max-width: 470px) {
+      width: 350px;
+    }
   }
-  .close-btn {
-    display: flex;
-    justify-content: end;
+  .modal-slider {
+    padding-top: 72px;
+    width: 90%;
+    margin: 0 auto;
+    display: block;
   }
 </style>

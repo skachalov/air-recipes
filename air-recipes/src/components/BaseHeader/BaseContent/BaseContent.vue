@@ -21,8 +21,8 @@
 </template>
 
 <script setup>
-  import BaseTitle from "@/components/MainPage/BaseHeader/BaseContent/BaseTitle"
-  import SearchBar from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/SearchBar"
+  import BaseTitle from "@/components/BaseHeader/BaseContent/BaseTitle"
+  import SearchBar from "@/components/BaseHeader/BaseContent/SearchBar/SearchBar"
   import { defineProps, defineEmits } from "vue"
 
   defineProps({

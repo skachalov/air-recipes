@@ -1,14 +1,7 @@
 <template>
-  <v-app>
-    <v-main >
-      <main-page-controller />
-    </v-main>
-  </v-app>
+  <app-controller />
 </template>
 
 <script setup>
-  import MainPageController from "@/controllers/MainPageController"
+  import AppController from "@/controllers/AppController"
 </script>
-
-<style>
-</style>

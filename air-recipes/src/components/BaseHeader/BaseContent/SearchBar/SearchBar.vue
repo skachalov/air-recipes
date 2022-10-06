@@ -27,8 +27,8 @@
 </template>
 
 <script setup>
-  import FilterButton from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/FilterButton"
-  import BaseInput from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/BaseInput"
+  import FilterButton from "@/components/BaseHeader/BaseContent/SearchBar/FilterButton"
+  import BaseInput from "@/components/BaseHeader/BaseContent/SearchBar/BaseInput"
   import { ref, defineEmits, defineProps } from "vue"
 
   defineProps({

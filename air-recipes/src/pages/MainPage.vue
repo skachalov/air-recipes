@@ -1,10 +1,5 @@
 <template>
   <v-container class="pt-0 ps-0 pe-0 pb-16" fluid>
-    <base-header
-        @clickFilterButton="clickFilterButton"
-        @searchRecipes="searchRecipes"
-        :height="height"
-    />
     <v-container class="ps-16 pe-16" fluid>
       <base-progress v-if="!getRecipes.length" />
       <v-row
@@ -25,22 +20,10 @@
 <script setup>
   import BaseCard from "@/components/MainPage/BaseCard/BaseCard"
   import BaseProgress from "@/components/BaseProgress"
-  import BaseHeader from "@/components/MainPage/BaseHeader/BaseHeader"
-  import { defineEmits, defineProps } from "vue"
+  import { defineProps } from "vue"
 
   defineProps({
-    height: Number,
     getRecipes: Array,
-    computeMargin: String
+    computeMargin: Number
   })
-
-  const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
-
-  function clickFilterButton() {
-    emits('clickFilterButton')
-  }
-
-  function searchRecipes(searchLine) {
-    emits('searchRecipes', searchLine)
-  }
 </script>

@@ -5,8 +5,9 @@ import * as components from 'vuetify/lib/components'
 import * as directives from 'vuetify/lib/directives'
 import "vuetify/lib/styles/main.css"
 import "@mdi/font/css/materialdesignicons.css"
-import {createVuetify} from "vuetify";
-import storage from "@/storage";
+import {createVuetify} from "vuetify"
+import storage from "@/storage"
+import router from "@/router"
 
 const vuetify = createVuetify({
     components,
@@ -16,10 +17,10 @@ const vuetify = createVuetify({
     }
 })
 
-
 loadFonts()
 
 createApp(App)
+    .use(router)
     .use(vuetify)
     .use(storage)
     .mount('#app')

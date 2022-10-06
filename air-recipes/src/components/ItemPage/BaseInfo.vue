@@ -4,7 +4,7 @@
         :style="{ color }"
         class="base-info-icon"
         :icon="iconName"
-    ></v-icon>
+    />
     <slot />
   </div>
 </template>

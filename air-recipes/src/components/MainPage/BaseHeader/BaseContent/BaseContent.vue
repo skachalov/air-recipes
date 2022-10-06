@@ -11,19 +11,33 @@
         'sticky-header-content': height < 450 }"
     >
       <base-title :height="height" />
-      <search-bar :height="height" />
+      <search-bar
+          @clickFilterButton="clickFilterButton"
+          @searchRecipes="searchRecipes"
+          :height="height"
+      />
     </v-row>
   </v-container>
 </template>
 
 <script setup>
-  import BaseTitle from "@/components/MainPage/BaseHeader/BaseContent/BaseTitle";
-  import SearchBar from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/SearchBar";
-  import { defineProps } from "vue"
+  import BaseTitle from "@/components/MainPage/BaseHeader/BaseContent/BaseTitle"
+  import SearchBar from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/SearchBar"
+  import { defineProps, defineEmits } from "vue"
 
   defineProps({
     height: Number
   })
+
+  const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
+
+  function clickFilterButton() {
+    emits('clickFilterButton')
+  }
+
+  function searchRecipes(searchLine) {
+    emits('searchRecipes', searchLine)
+  }
 </script>
 
 <style lang="scss" scoped>

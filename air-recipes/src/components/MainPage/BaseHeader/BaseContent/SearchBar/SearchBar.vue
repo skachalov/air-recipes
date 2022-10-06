@@ -4,7 +4,8 @@
       :class="{ 'sticky-header-search-bar': height < 450 }"
   >
     <v-col
-        :class="{ 'v-col-9': height >= 450, 'v-col-lg-6': height < 450 }"
+        :class="{ 'v-col-9': height >= 450,
+        'v-col-lg-6': height < 450 }"
         class="v-col-md-8 v-col-sm-6 v-col-xs-7"
     >
       <base-input
@@ -14,34 +15,35 @@
       />
     </v-col>
     <v-col
-        :class="{ 'v-col-3': height >= 450, 'v-col-lg-3': height < 450 }"
+        :class="{ 'v-col-3': height >= 450,
+        'v-col-lg-3': height < 450 }"
         class="v-col-md-4 v-col-sm-2"
     >
       <filter-button
-          @click="switchIsShownModal"
+          @click="clickFilterButton"
       />
     </v-col>
   </v-row>
 </template>
 
 <script setup>
-  import FilterButton from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/FilterButton";
-  import BaseInput from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/BaseInput";
-  import { viewModel } from "@/storage";
-  import { ref, defineProps } from "vue";
+  import FilterButton from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/FilterButton"
+  import BaseInput from "@/components/MainPage/BaseHeader/BaseContent/SearchBar/BaseInput"
+  import { ref, defineEmits, defineProps } from "vue"
 
   defineProps({
     height: Number
   })
 
   const searchLine = ref("")
+  const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
 
-  function switchIsShownModal() {
-    viewModel.getModalViewModel().switchIsShownModal()
+  function clickFilterButton() {
+    emits('clickFilterButton')
   }
 
   function searchRecipes() {
-    viewModel.getRecipesViewModal().setSearchLine(searchLine.value)
+    emits('searchRecipes', searchLine.value)
   }
 </script>
 

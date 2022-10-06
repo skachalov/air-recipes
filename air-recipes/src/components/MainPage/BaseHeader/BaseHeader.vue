@@ -11,7 +11,11 @@
             :class="{ 'v-col-4': height > 450,
             'v-col-12': height <= 450 }"
         >
-          <base-content :height="height" />
+          <base-content
+              @clickFilterButton="clickFilterButton"
+              @searchRecipes="searchRecipes"
+              :height="height"
+          />
         </v-col>
         <v-col
                class="image-container pa-0 overflow-hidden"
@@ -26,13 +30,23 @@
 </template>
 
 <script setup>
-  import BaseContent from "@/components/MainPage/BaseHeader/BaseContent/BaseContent";
-  import HeaderImage from "@/components/MainPage/BaseHeader/HeaderImage";
-  import { defineProps } from "vue"
+  import BaseContent from "@/components/MainPage/BaseHeader/BaseContent/BaseContent"
+  import HeaderImage from "@/components/MainPage/BaseHeader/HeaderImage"
+  import { defineProps, defineEmits } from "vue"
 
   defineProps({
     height: Number
   })
+
+  const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
+
+  function clickFilterButton() {
+    emits('clickFilterButton')
+  }
+
+  function searchRecipes(searchLine) {
+    emits('searchRecipes', searchLine)
+  }
 </script>
 
 <style scoped>

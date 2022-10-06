@@ -1,5 +1,8 @@
 <template>
-  <div :style="{ color }">
+  <div
+      :style="{ color }"
+      class="base-info"
+  >
     <v-icon
         :style="{ color }"
         class="base-info-icon"
@@ -19,6 +22,9 @@
 </script>
 
 <style scoped>
+  .base-info {
+    margin-right: 33px;
+  }
   .base-info-icon {
     color: rgba(200, 200, 200, 1);
     margin-right: 10px;

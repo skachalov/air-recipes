@@ -8,9 +8,8 @@
         <ingredient-item
           v-for="ingredient in ingredients"
           :key="ingredient"
-        >
-          {{ ingredient }}
-        </ingredient-item>
+          :ingredient="ingredient"
+        />
       </ul>
     </v-row>
   </v-row>

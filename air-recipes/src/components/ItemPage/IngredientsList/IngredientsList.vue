@@ -3,15 +3,14 @@
     <v-row class="ingredients-title mb-6">
       <h3>Ingredients</h3>
     </v-row>
-    <v-row class="ingredients-list">
+    <v-row>
       <ul>
-        <li
+        <ingredient-item
           v-for="ingredient in ingredients"
           :key="ingredient"
-          class="mb-3"
         >
           {{ ingredient }}
-        </li>
+        </ingredient-item>
       </ul>
     </v-row>
   </v-row>
@@ -19,6 +18,7 @@
 
 <script setup>
   import { defineProps } from "vue"
+  import IngredientItem from "@/components/ItemPage/IngredientsList/IngredientItem";
 
   defineProps({
     ingredients: Array

@@ -4,7 +4,7 @@
       <h3>Ingredients</h3>
     </v-row>
     <v-row>
-      <ul>
+      <ul class="ps-4">
         <ingredient-item
           v-for="ingredient in ingredients"
           :key="ingredient"

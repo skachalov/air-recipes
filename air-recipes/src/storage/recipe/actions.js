@@ -15,5 +15,9 @@ export default {
 
     setRecipe({ commit }, recipe) {
         commit("setRecipe", recipe)
+    },
+
+    clearRecipe({ commit }) {
+        commit("clearRecipe")
     }
 }

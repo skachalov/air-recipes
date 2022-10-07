@@ -3,7 +3,15 @@ export default class RecipeViewModel {
         this._store = recipeStore
     }
 
+    fetchRecipe(id) {
+        this._store.dispatch("fetchRecipe", id)
+    }
+
     setRecipe(recipe) {
         this._store.dispatch("setRecipe", recipe)
+    }
+
+    clearRecipe() {
+        this._store.dispatch("clearRecipe")
     }
 }

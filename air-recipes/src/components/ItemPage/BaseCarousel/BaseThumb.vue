@@ -1,6 +1,6 @@
 <template>
   <div
-      class="base-thumb"
+      class="base-thumb me-2"
       :class="{ 'active-border': isActive }">
     <img :src="image" />
   </div>

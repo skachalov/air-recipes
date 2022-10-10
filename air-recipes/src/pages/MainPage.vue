@@ -6,6 +6,7 @@
           v-else
           class="pt-8 justify-center"
       >
+        <transition name=""></transition>
         <base-card
             v-for="recipe in getRecipes"
             :key="recipe.id"

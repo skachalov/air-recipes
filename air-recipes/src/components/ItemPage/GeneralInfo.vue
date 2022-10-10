@@ -18,7 +18,7 @@
       </base-info>
       <base-info
           :icon-name="'mdi-clock-outline'">
-        {{ formatTime(time) }}
+        {{ formatTime(cookTime) }}
       </base-info>
       <base-info
           :icon-name="'mdi-fire'">
@@ -41,18 +41,18 @@
     title: String,
     description: String,
     difficulty: String,
-    time: Number,
+    cookTime: Number,
     caloricity: Number,
     cuisine: String
   })
 
   function defineColor(difficulty) {
     switch (difficulty) {
-      case "Easy":
+      case "easy":
         return "#2FB65D"
-      case "Medium":
+      case "medium":
         return "#EB8A31"
-      case "Hard":
+      case "hard":
         return "#EB3C31"
     }
   }

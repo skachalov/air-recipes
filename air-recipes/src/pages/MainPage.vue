@@ -5,7 +5,6 @@
       <v-row
           v-else
           class="pt-8 justify-center"
-          :style="{ 'margin-top': computeMargin }"
       >
         <base-card
             v-for="recipe in getRecipes"
@@ -14,16 +13,15 @@
         />
       </v-row>
     </v-container>
-    </v-container>
+  </v-container>
 </template>
 
 <script setup>
-  import BaseCard from "@/components/MainPage/BaseCard/BaseCard"
-  import BaseProgress from "@/components/BaseProgress"
-  import { defineProps } from "vue"
+import BaseCard from "@/components/MainPage/BaseCard/BaseCard"
+import BaseProgress from "@/components/BaseProgress"
+import { defineProps } from "vue"
 
-  defineProps({
-    getRecipes: Array,
-    computeMargin: Number
-  })
+defineProps({
+  getRecipes: Array
+})
 </script>

@@ -4,6 +4,6 @@ export default {
     },
 
     clearRecipe(state) {
-        state.recipe = undefined
+        state.recipe = null
     }
 }

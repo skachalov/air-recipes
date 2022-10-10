@@ -41,14 +41,32 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .base-carousel {
     position: relative;
     width: 532px;
     height: 427px;
+
+    @media(max-width: 730px) {
+      width: 400px;
+      height: 340px;
+    }
+
+    @media(max-width: 600px) {
+      width: 350px;
+      height: 270px;
+    }
   }
   .carousel {
     height: 355px !important;
+
+    @media(max-width: 730px) {
+      height: 270px !important;
+    }
+
+    @media(max-width: 600px) {
+      height: 200px !important;
+    }
   }
   .thumb-container {
     display: flex;

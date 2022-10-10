@@ -25,7 +25,7 @@ import FilterModalController from "@/controllers/FilterModalController"
   let scrollReaction = ref(true)
 
   const computeMargin = computed(() => !scrollReaction.value
-      ? '200px'
+      ? '150px'
       : headerHeight.value > 460
           ? 0
           : headerHeight.value + 30 + 'px'

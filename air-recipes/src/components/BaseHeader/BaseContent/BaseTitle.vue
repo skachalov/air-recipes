@@ -39,6 +39,7 @@
     }
   }
   .title {
+    font-family: "Gilroy ExtraBold";
     font-size: 64px;
     width: 100%;
 

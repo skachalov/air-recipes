@@ -61,6 +61,7 @@
 <style lang="scss" scoped>
   .info-title {
     font-size: 40px;
+    font-family: "Gilroy ExtraBold";
 
     @media(max-width: 600px) {
       font-size: 26px;

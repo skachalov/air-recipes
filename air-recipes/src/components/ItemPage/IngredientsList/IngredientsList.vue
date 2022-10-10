@@ -27,5 +27,6 @@
 <style scoped>
   .ingredients-title {
     font-size: 24px;
+    font-family: "Gilroy ExtraBold";
   }
 </style>

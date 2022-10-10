@@ -2,7 +2,7 @@
   <v-row class="modal-header">
     <v-col
         cols="10"
-        style="font-size: 24px"
+        style="font-family: 'Gilroy ExtraBold'; font-size: 24px"
     >
       <h3>Filter</h3>
     </v-col>

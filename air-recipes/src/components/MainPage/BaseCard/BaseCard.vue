@@ -30,6 +30,7 @@
     </v-img>
     <v-card-title
         class="mt-6 pt-0 pl-6 pr-6 text-wrap"
+        style="font-family: 'Gilroy ExtraBold'; font-size: 24px"
     >
       <h3>{{ recipe.title }}</h3>
     </v-card-title>

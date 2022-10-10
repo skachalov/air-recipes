@@ -28,5 +28,6 @@
 <style scoped>
   .instructions-title {
     font-size: 24px;
+    font-family: "Gilroy ExtraBold";
   }
 </style>

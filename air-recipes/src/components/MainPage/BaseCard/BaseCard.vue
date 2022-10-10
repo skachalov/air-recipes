@@ -6,7 +6,7 @@
       height="384"
       @mouseover="mouseoverCard = true"
       @mouseleave="mouseoverCard = false"
-      @click="pushIdToUrl"
+      @click="$router.push(`${recipe.id}`)"
   >
     <v-img
         :src=recipe.thumbnail
@@ -31,13 +31,13 @@
     <v-card-title
         class="mt-6 pt-0 pl-6 pr-6 text-wrap"
     >
-      <h3>{{recipe.title}}</h3>
+      <h3>{{ recipe.title }}</h3>
     </v-card-title>
     <v-card-text
         class="pl-6 pr-6 text-break"
         style="font-size: 16px"
     >
-      {{curWord(recipe.description)}}
+      {{ cutWord(recipe.description) }}
     </v-card-text>
   </v-card>
 </template>
@@ -46,7 +46,7 @@
   import { ref, defineProps } from "vue"
   import BaseChip from "@/components/MainPage/BaseCard/BaseChip"
   import formatTime from "@/helpers/formatTime"
-  import curWord from "@/helpers/curWord";
+  import cutWord from "@/helpers/cutWord";
 
   defineProps({
     recipe: Object

@@ -1,7 +1,7 @@
 <template>
     <v-container
         class="pa-0 bg-white"
-        :style="{ height: height + 'px'}"
+        :style="{ height: height + 'px' }"
         :class="{ 'sticky-header': height <= 450 }"
         fluid
     >
@@ -30,8 +30,8 @@
 </template>
 
 <script setup>
-  import BaseContent from "@/components/MainPage/BaseHeader/BaseContent/BaseContent"
-  import HeaderImage from "@/components/MainPage/BaseHeader/HeaderImage"
+  import BaseContent from "@/components/BaseHeader/BaseContent/BaseContent"
+  import HeaderImage from "@/components/BaseHeader/HeaderImage"
   import { defineProps, defineEmits } from "vue"
 
   defineProps({

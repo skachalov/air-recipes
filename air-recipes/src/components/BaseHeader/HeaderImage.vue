@@ -5,7 +5,7 @@
   />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   .image {
     transform: scaleX(-1);
     width: 100%;

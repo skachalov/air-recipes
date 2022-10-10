@@ -2,19 +2,22 @@
     <v-row
         style="height: 104px; width: 331px;"
         class="ma-0 title-container"
-        :class="{ 'padding': height <= 450 }"
     >
       <v-row
-          style="height: 80px; width: 331px"
+          style="height: 80px; width: 100%"
           class="ma-0 justify-center"
       >
         <h1 class="title">Air Recipes</h1>
       </v-row>
       <v-row
-          style="width: 206px" class="ma-0"
-          v-if="height > 450"
+          class="ma-0"
       >
-        <span class="description">Best Recipes for Best People</span>
+        <span
+            style="width: 100%"
+            class="description"
+        >
+          Best Recipes for Best People
+        </span>
       </v-row>
     </v-row>
 </template>
@@ -32,10 +35,6 @@
     @media (max-width: 960px) {
       padding-left: 0 !important;
       width: 100% !important;
-      height: 75px !important;
-    }
-    @media (max-width: 600px) {
-      height: 25px !important;
     }
   }
   .title {
@@ -52,7 +51,12 @@
   }
   .description {
     font-family: Roboto;
-    color: #82786A
+    color: #82786A;
+
+    @media(max-width: 960px) {
+      display: flex;
+      justify-content: center;
+    }
   }
   .padding {
     padding-left: 98px;

@@ -7,6 +7,7 @@
       <header-controller
           @changeHeaderHeight="changeHeaderHeight"
           @setScrollReaction="setScrollReaction"
+          @changeScrollVar="changeScrollVar"
       />
       <router-view
           :style="{ 'margin-top': computeMargin }"
@@ -22,13 +23,13 @@ import FilterModalController from "@/controllers/FilterModalController"
   import { ref, computed } from "vue";
 
   let headerHeight = ref(600)
+  let scrollVar = ref(0)
   let scrollReaction = ref(true)
 
-  const computeMargin = computed(() => !scrollReaction.value
-      ? '150px'
-      : headerHeight.value > 460
-          ? 0
-          : headerHeight.value + 30 + 'px'
+  const computeMargin = computed(() =>
+      scrollReaction.value
+          ? headerHeight.value + scrollVar.value + 32 + 'px'
+          : headerHeight.value + 32 + 'px'
   )
 
   function changeHeaderHeight(height) {
@@ -37,5 +38,9 @@ import FilterModalController from "@/controllers/FilterModalController"
 
   function setScrollReaction(flag) {
     scrollReaction.value = flag
+  }
+
+  function changeScrollVar(scroll) {
+    scrollVar.value = scroll
   }
 </script>

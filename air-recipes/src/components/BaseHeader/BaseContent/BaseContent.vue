@@ -5,10 +5,9 @@
       fluid
   >
     <v-row
-        class="screen-960"
-        :class="{ 'fixed-content': height >= 500,
-        'sticky-bottom-content': height < 500 && height >= 450,
-        'sticky-header-content': height < 450 }"
+        class="base-content"
+        :class="{ 'fixed-content': height > 292,
+        'sticky-bottom-content': height <= 292 }"
     >
       <base-title :height="height" />
       <search-bar
@@ -41,6 +40,12 @@
 </script>
 
 <style lang="scss" scoped>
+  .base-content {
+    @media (max-width: 960px) {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
   .fixed-content {
     margin-top: 128px;
     margin-left: 98px;
@@ -52,23 +57,7 @@
     position: absolute;
     height: 192px;
     width: 348px;
-    bottom: 0;
+    bottom: -14px;
     margin-left: 98px;
-  }
-  .sticky-header-content {
-    position: absolute;
-    display: flex;
-    align-items: end;
-    height: 200px;
-    width: 100%;
-    bottom: 0;
-  }
-  .screen-960 {
-    @media (max-width: 960px) {
-      margin-left: 0;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
   }
 </style>

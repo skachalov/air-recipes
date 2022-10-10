@@ -1,15 +1,13 @@
 <template>
     <v-container
-        class="pa-0 bg-white"
+        class="pa-0 bg-white base-header"
         :style="{ height: height + 'px' }"
-        :class="{ 'sticky-header': height <= 450 }"
         fluid
     >
       <v-row class="ma-0 position-relative">
         <v-col
-            class="pa-0"
-            :class="{ 'v-col-4': height > 450,
-            'v-col-12': height <= 450 }"
+            class="base-content-container pa-0 v-col-lg-4 v-col-md-2 v-col-sm-12"
+            style="z-index: 3"
         >
           <base-content
               @clickFilterButton="clickFilterButton"
@@ -18,10 +16,8 @@
           />
         </v-col>
         <v-col
-               class="image-container pa-0 overflow-hidden"
-               :class="{ 'v-col-8': height > 450 }"
-               v-show="height > 450"
-               :style="{ height: height + 'px' }"
+              class="image-container pa-0 overflow-hidden v-col-lg-8 v-col-md-10 v-col-sm-12"
+              :style="{ height: height + 'px'  }"
         >
           <header-image />
         </v-col>
@@ -49,15 +45,29 @@
   }
 </script>
 
-<style scoped>
-  .sticky-header {
+<style lang="scss" scoped>
+  .base-header {
     position: fixed;
-    top: -272px;
-    z-index: 1;
+    z-index: 2;
+  }
+  .base-content-container {
+    position: absolute;
+
+    @media (max-width: 960px) {
+      order: 2;
+      margin-top: 12px;
+    }
   }
   .image-container {
+    position: absolute;
+    right: 0;
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    @media (max-width: 960px) {
+      display: none;
+    }
   }
 </style>

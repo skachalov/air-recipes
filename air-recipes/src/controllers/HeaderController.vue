@@ -15,7 +15,7 @@
   let headerHeight = ref(600)
   let scrollReaction = ref(true)
 
-  const emits = defineEmits("changeHeaderHeight", "setScrollReaction")
+  const emits = defineEmits("changeHeaderHeight", "setScrollReaction", "changeScrollVar")
 
   onMounted(() => {
     window.addEventListener('resize', () => updateWidth())
@@ -28,28 +28,30 @@
 
     let scrollVar = window.pageYOffset
 
-    if (scrollVar < 282) {
-      headerHeight.value = DEFAULT_HEADER_HEIGHT - scrollVar / 2
+    if (scrollVar <= 328) {
+      headerHeight.value = DEFAULT_HEADER_HEIGHT - scrollVar
+      emits("changeScrollVar", scrollVar)
     }
-    else headerHeight.value = 360
+    else {
+      headerHeight.value = 292
+      emits("changeScrollVar", 328)
+    }
 
     emits("changeHeaderHeight", headerHeight.value)
   }
 
   function updateWidth() {
-    if (window.innerWidth <= 1320) {
-      if (window.innerWidth <= 960) headerHeight.value = 450
-      else headerHeight.value = 360
-
+    if (window.innerWidth <= 960) {
+      headerHeight.value = 160
       scrollReaction.value = false
     }
     else {
       headerHeight.value = DEFAULT_HEADER_HEIGHT
       window.scrollTo(0, 0)
-
       scrollReaction.value = true
     }
 
+    emits("changeHeaderHeight", headerHeight.value)
     emits("setScrollReaction", scrollReaction.value)
   }
 
@@ -58,7 +60,6 @@
   }
 
   function searchRecipes(searchLine) {
-    console.log(searchLine)
     viewModel.getRecipesViewModal().setSearchLine(searchLine)
   }
 </script>

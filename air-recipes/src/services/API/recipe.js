@@ -1,3 +1,4 @@
-import axios from "axios";
+import axios from "axios"
+import { recipeURL } from "@/const/URL"
 
-export const fetchGetRecipe = async id => await axios.get(`https://test.kode-t.ru/detail_${id}.json`)
+export const fetchGetRecipe = async id => await axios.get(recipeURL + `${id}.json`)

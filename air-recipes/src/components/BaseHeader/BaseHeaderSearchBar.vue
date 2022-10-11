@@ -1,6 +1,6 @@
 <template>
   <v-row
-      class="align-end text"
+      class="align-center text"
   >
     <v-col class="v-col-md-8 v-col-sm-9">
       <base-input
@@ -9,8 +9,8 @@
           @keydown.enter="searchRecipes"
       />
     </v-col>
-    <v-col class="v-col-md-4 v-col-sm-3 filter-container">
-      <filter-button
+    <v-col class="v-col-md-4 v-col-sm-3 filter-button-container">
+      <base-filter-button
           @click="clickFilterButton"
       />
     </v-col>
@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-  import FilterButton from "@/components/BaseHeader/BaseContent/SearchBar/FilterButton"
-  import BaseInput from "@/components/BaseHeader/BaseContent/SearchBar/BaseInput"
+  import BaseFilterButton from "@/components/UI/BaseFilterButton"
+  import BaseInput from "@/components/UI/BaseInput"
   import { ref, defineEmits, defineProps } from "vue"
 
   defineProps({
@@ -61,7 +61,7 @@
       max-width: 200px;
     }
   }
-  .filter-container {
+  .filter-button-container {
     @media (max-width: 600px) {
       max-width: 27%;
     }

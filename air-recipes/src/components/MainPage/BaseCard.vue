@@ -45,7 +45,7 @@
 
 <script setup>
   import { ref, defineProps } from "vue"
-  import BaseChip from "@/components/MainPage/BaseCard/BaseChip"
+  import BaseChip from "@/components/UI/BaseChip"
   import formatTime from "@/helpers/formatTime"
   import cutWord from "@/helpers/cutWord";
 

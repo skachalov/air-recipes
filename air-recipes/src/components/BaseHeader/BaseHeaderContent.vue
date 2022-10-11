@@ -5,21 +5,24 @@
       fluid
   >
     <v-row
-        class="fixed-content"
+        class="base-header-content"
+        :class="{ 'base-header-content-rolled': height <= 292 }"
     >
-      <base-title :height="height" />
-      <search-bar
+      <base-header-title
+          :height="height"
+      />
+      <base-header-search-bar
+          :height="height"
           @clickFilterButton="clickFilterButton"
           @searchRecipes="searchRecipes"
-          :height="height"
       />
     </v-row>
   </v-container>
 </template>
 
 <script setup>
-  import BaseTitle from "@/components/BaseHeader/BaseContent/BaseTitle"
-  import SearchBar from "@/components/BaseHeader/BaseContent/SearchBar/SearchBar"
+  import BaseHeaderTitle from "@/components/BaseHeader/BaseHeaderTitle"
+  import BaseHeaderSearchBar from "@/components/BaseHeader/BaseHeaderSearchBar"
   import { defineProps, defineEmits } from "vue"
 
   defineProps({
@@ -38,11 +41,22 @@
 </script>
 
 <style lang="scss" scoped>
-  .fixed-content {
+  .base-header-content {
+    position: fixed;
     margin-top: 128px;
     margin-left: 98px;
-    position: fixed;
     height: 192px;
     width: 348px;
+  }
+  .base-header-content-rolled {
+    position: relative;
+    margin-top: 0;
+    margin-left: 4%;
+    width: 100%;
+    height: 80px;
+
+    @media(max-width: 960px) {
+      margin-left: 0;
+    }
   }
 </style>

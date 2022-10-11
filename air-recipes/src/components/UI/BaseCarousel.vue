@@ -28,7 +28,7 @@
 
 <script setup>
   import { defineProps, ref } from "vue"
-  import BaseThumb from "@/components/ItemPage/BaseCarousel/BaseThumb";
+  import BaseThumb from "@/components/UI/BaseThumb";
 
   defineProps({
     images: Array

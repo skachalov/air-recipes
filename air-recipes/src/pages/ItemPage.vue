@@ -12,7 +12,7 @@
         <v-col
             class="info-container"
         >
-          <general-info
+          <item-page-info
             :title="recipe.title"
             :description="recipe.description"
             :difficulty="recipe.difficulty"
@@ -20,11 +20,11 @@
             :caloricity="recipe.caloricity"
             :cuisine="recipe.cuisine.title"
           />
-          <ingredients-list
+          <item-page-ingredients
             :ingredients="recipe.ingredients"
             class="mt-12"
           />
-          <instructions-list
+          <item-page-instructions
             :instructions="recipe.instructions"
             class="mt-12"
           />
@@ -41,12 +41,12 @@
 </template>
 
 <script setup>
-  import BaseProgress from "@/components/BaseProgress"
+  import BaseProgress from "@/components/UI/BaseProgress"
+  import ItemPageInfo from "@/components/ItemPage/ItemPageInfo"
+  import ItemPageIngredients from "@/components/ItemPage/ItemPageIngredients"
+  import ItemPageInstructions from "@/components/ItemPage/ItemPageIntructions"
+  import BaseCarousel from "@/components/UI/BaseCarousel"
   import { defineProps } from "vue"
-  import GeneralInfo from "@/components/ItemPage/GeneralInfo";
-  import IngredientsList from "@/components/ItemPage/IngredientsList/IngredientsList";
-  import InstructionsList from "@/components/ItemPage/InstructionsList/InstructionsList";
-  import BaseCarousel from "@/components/ItemPage/BaseCarousel/BaseCarousel";
 
   defineProps({
     recipe: Object

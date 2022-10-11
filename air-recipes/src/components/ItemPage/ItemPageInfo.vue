@@ -35,7 +35,7 @@
 <script setup>
   import formatTime from "@/helpers/formatTime"
   import { defineProps } from "vue"
-  import BaseInfo from "@/components/ItemPage/BaseInfo"
+  import BaseInfo from "@/components/UI/BaseInfo"
 
   defineProps({
     title: String,

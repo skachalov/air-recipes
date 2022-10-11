@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-  import BaseButton from "@/components/FilterModal/ModalButtons/BaseButton"
+  import BaseButton from "@/components/UI/BaseButton"
   import { defineEmits } from "vue"
 
   const emits = defineEmits(["clearParams", "showRecipes"])

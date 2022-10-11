@@ -5,7 +5,7 @@
       fluid
   >
     <v-container class="modal">
-      <modal-header @closeModal="closeModal" />
+      <filter-modal-header @closeModal="closeModal" />
 
       <v-row class=" justify-center">
         <base-checkbox
@@ -27,7 +27,7 @@
         <div>Calories, kCal</div>
       </v-row>
 
-      <modal-buttons
+      <filter-modal-footer
           @clearParams="clearParams"
           @showRecipes="showRecipes"
       />
@@ -37,10 +37,10 @@
 
 <script setup>
   import { defineProps, defineEmits } from "vue"
-  import BaseCheckbox from "@/components/FilterModal/BaseCheckbox";
-  import BaseSlider from "@/components/FilterModal/BaseSlider";
-  import ModalHeader from "@/components/FilterModal/ModalHeader";
-  import ModalButtons from "@/components/FilterModal/ModalButtons/ModalButtons";
+  import BaseCheckbox from "@/components/UI/BaseCheckbox";
+  import BaseSlider from "@/components/UI/BaseSlider";
+  import FilterModalHeader from "@/components/FilterModal/FilterModalHeader";
+  import FilterModalFooter from "@/components/FilterModal/FilterModalFooter";
 
   defineProps({
     cuisines: Array,

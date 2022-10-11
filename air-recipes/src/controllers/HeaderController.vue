@@ -35,7 +35,7 @@
       emits("changeScrollVar", scrollVar)
     }
     else {
-      headerHeight.value = 75
+      headerHeight.value = 80
       emits("changeScrollVar", 328)
     }
 

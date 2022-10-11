@@ -18,11 +18,11 @@
 </template>
 
 <script setup>
-import BaseCard from "@/components/MainPage/BaseCard/BaseCard"
-import BaseProgress from "@/components/BaseProgress"
-import { defineProps } from "vue"
+  import BaseCard from "@/components/MainPage/BaseCard"
+  import BaseProgress from "@/components/UI/BaseProgress"
+  import { defineProps } from "vue"
 
-defineProps({
-  getRecipes: Array
-})
+  defineProps({
+    getRecipes: Array
+  })
 </script>

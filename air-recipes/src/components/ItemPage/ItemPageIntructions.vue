@@ -5,7 +5,7 @@
     </v-row>
     <v-row>
       <ul>
-        <instruction-item
+        <base-instruction
             v-for="instruction in instructions"
             :key="instruction"
             :instruction="instruction"
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-  import InstructionItem from "@/components/ItemPage/InstructionsList/InstructionItem"
+  import BaseInstruction from "@/components/UI/BaseInstruction"
   import { defineProps } from "vue"
 
   defineProps({

@@ -5,7 +5,7 @@
     </v-row>
     <v-row>
       <ul class="ps-4">
-        <ingredient-item
+        <base-ingredient
           v-for="ingredient in ingredients"
           :key="ingredient"
           :ingredient="ingredient"
@@ -17,7 +17,7 @@
 
 <script setup>
   import { defineProps } from "vue"
-  import IngredientItem from "@/components/ItemPage/IngredientsList/IngredientItem";
+  import BaseIngredient from "@/components/UI/BaseIngredient";
 
   defineProps({
     ingredients: Array

@@ -59,13 +59,13 @@
 <style lang="scss" scoped>
   .base-card {
     cursor: pointer;
-    transition: box-shadow .5s;
+    transition: transform .5s;
 
     @media (max-width: 600px) {
       height: 425px !important;
     }
   }
   .evelate {
-    box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-5px);
   }
 </style>

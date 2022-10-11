@@ -6,6 +6,7 @@
       />
       <header-controller
           @changeHeaderHeight="changeHeaderHeight"
+          @changeInnerWidth="changeInnerWidth"
           @setScrollReaction="setScrollReaction"
           @changeScrollVar="changeScrollVar"
       />
@@ -25,15 +26,20 @@ import FilterModalController from "@/controllers/FilterModalController"
   let headerHeight = ref(600)
   let scrollVar = ref(0)
   let scrollReaction = ref(true)
+  let innerWidth = ref(window.innerWidth)
 
   const computeMargin = computed(() =>
       scrollReaction.value
-          ? headerHeight.value + scrollVar.value + 32 + 'px'
-          : headerHeight.value + 32 + 'px'
+          ? headerHeight.value + scrollVar.value + 10 + 'px'
+          : '102px'
   )
 
   function changeHeaderHeight(height) {
     headerHeight.value = height
+  }
+
+  function changeInnerWidth(width) {
+    innerWidth.value = width
   }
 
   function setScrollReaction(flag) {

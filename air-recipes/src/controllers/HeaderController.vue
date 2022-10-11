@@ -1,6 +1,7 @@
 <template>
   <base-header
       :height="headerHeight"
+      :inner-width="innerWidth"
       @clickFilterButton="switchIsShownModal"
       @searchRecipes="searchRecipes"
   />
@@ -14,8 +15,9 @@
   const DEFAULT_HEADER_HEIGHT = 600
   let headerHeight = ref(600)
   let scrollReaction = ref(true)
+  let innerWidth = ref(window.innerWidth)
 
-  const emits = defineEmits("changeHeaderHeight", "setScrollReaction", "changeScrollVar")
+  const emits = defineEmits("changeHeaderHeight", "changeInnerWidth", "setScrollReaction", "changeScrollVar")
 
   onMounted(() => {
     window.addEventListener('resize', () => updateWidth())
@@ -33,7 +35,7 @@
       emits("changeScrollVar", scrollVar)
     }
     else {
-      headerHeight.value = 292
+      headerHeight.value = 75
       emits("changeScrollVar", 328)
     }
 
@@ -41,7 +43,9 @@
   }
 
   function updateWidth() {
-    if (window.innerWidth <= 960) {
+    innerWidth.value = window.innerWidth
+
+    if (innerWidth.value <= 960) {
       headerHeight.value = 160
       scrollReaction.value = false
     }
@@ -53,6 +57,7 @@
 
     emits("changeHeaderHeight", headerHeight.value)
     emits("setScrollReaction", scrollReaction.value)
+    emits("changeInnerWidth", innerWidth.value)
   }
 
   function switchIsShownModal() {

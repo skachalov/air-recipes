@@ -5,9 +5,7 @@
       fluid
   >
     <v-row
-        class="base-content"
-        :class="{ 'fixed-content': height > 292,
-        'sticky-bottom-content': height <= 292 }"
+        class="fixed-content"
     >
       <base-title :height="height" />
       <search-bar
@@ -40,24 +38,11 @@
 </script>
 
 <style lang="scss" scoped>
-  .base-content {
-    @media (max-width: 960px) {
-      width: 100% !important;
-      margin-left: 0 !important;
-    }
-  }
   .fixed-content {
     margin-top: 128px;
     margin-left: 98px;
     position: fixed;
     height: 192px;
     width: 348px;
-  }
-  .sticky-bottom-content {
-    position: absolute;
-    height: 192px;
-    width: 348px;
-    bottom: -14px;
-    margin-left: 98px;
   }
 </style>

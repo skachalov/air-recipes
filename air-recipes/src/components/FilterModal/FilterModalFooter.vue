@@ -2,6 +2,7 @@
   <v-row class="modal-buttons">
     <v-col class="clear-btn">
       <base-button
+          v-show="showClearBtn"
           :is-dark="false"
           @click="clearParams"
       >
@@ -21,7 +22,11 @@
 
 <script setup>
   import BaseButton from "@/components/UI/BaseButton"
-  import { defineEmits } from "vue"
+  import { defineProps, defineEmits } from "vue"
+
+  defineProps({
+    showClearBtn: Boolean
+  })
 
   const emits = defineEmits(["clearParams", "showRecipes"])
 

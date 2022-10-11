@@ -28,6 +28,7 @@
       </v-row>
 
       <filter-modal-footer
+          :show-clear-btn="showClearBtn"
           @clearParams="clearParams"
           @showRecipes="showRecipes"
       />
@@ -46,7 +47,8 @@
     cuisines: Array,
     selectedCuisines: Array,
     caloricityRange: Array,
-    chosenCaloricity: Array
+    chosenCaloricity: Array,
+    showClearBtn: Boolean
   })
 
   const emits =

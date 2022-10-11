@@ -4,6 +4,7 @@
       :selected-cuisines="includedCuisines"
       :caloricity-range="caloricityRange"
       :chosen-caloricity="chosenCaloricity"
+      :show-clear-btn="showClearButton"
       @closeModal="closeModal"
       @clearParams="clearParams"
       @showRecipes="showRecipes"
@@ -15,8 +16,9 @@
 <script setup>
   import FilterModal from "@/components/FilterModal/FilterModal"
   import { useStore } from "vuex"
-  import { ref, onMounted } from "vue"
+  import { ref, onMounted, computed } from "vue"
   import { viewModel } from "@/storage"
+  import { compareArrays } from "@/helpers/compareArrays"
 
   const store = useStore()
   let includedCuisines = ref([])
@@ -49,6 +51,12 @@
         .setMaxAndMinCaloricityChosen({ min: chosenCaloricity.value[0], max: chosenCaloricity.value[1] })
     closeModal()
   }
+
+  const showClearButton = computed(() => {
+    return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
+        && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
+        && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
+  })
 
   function updateSelected(val) {
     includedCuisines.value = includedCuisines.value.indexOf(val) === -1

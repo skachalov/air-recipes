@@ -10,6 +10,7 @@
           @changeScrollVar="changeScrollVar"
       />
       <router-view
+          class="router-view"
           :style="{ 'margin-top': computeMargin }"
           :key="$route.fullPath">
       </router-view>
@@ -45,6 +46,9 @@
 </script>
 
 <style scoped>
+  .router-view {
+    transition: .5s;
+  }
   .modal-enter-active,
   .modal-leave-active {
     transition: opacity .1s ease;

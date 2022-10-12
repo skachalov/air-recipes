@@ -7,9 +7,14 @@
 <script setup>
   import MainPage from "@/pages/MainPage"
   import { onMounted } from "vue"
+  import { useStore } from "vuex"
   import { viewModel } from "@/storage"
 
+  const store = useStore()
+
   onMounted(() => {
-    viewModel.getRecipesViewModal().fetchRecipes()
+    if (!store.state.recipes.recipes.length) {
+      viewModel.getRecipesViewModal().fetchRecipes()
+    }
   })
 </script>

@@ -3,6 +3,11 @@ export default {
         const regex = new RegExp('^' + state.searchLine, 'i')
         const cuisineInChosenList = cuisineId => state.cuisinesIncludedChosen.includes(cuisineId)
 
+
+        console.log(!state.recipes.filter(r => regex.test(r.title)
+            && r.caloricity >= state.caloricityChosen.min
+            && r.caloricity <= state.caloricityChosen.max
+            && cuisineInChosenList(r.cuisine.id)))
         return state.recipes.filter(r => regex.test(r.title)
             && r.caloricity >= state.caloricityChosen.min
             && r.caloricity <= state.caloricityChosen.max

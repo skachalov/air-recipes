@@ -19,6 +19,7 @@
   import { ref, onMounted, computed } from "vue"
   import { viewModel } from "@/storage"
   import { compareArrays } from "@/helpers/compareArrays"
+  import { useRoute, useRouter } from "vue-router";
 
   const store = useStore()
   let includedCuisines = ref([])
@@ -45,11 +46,19 @@
     getDefaultParams()
   }
 
+  const route = useRoute()
+  const router = useRouter()
+
   function showRecipes() {
     viewModel.getRecipesViewModal().setCuisinesIncluded(includedCuisines.value)
     viewModel.getRecipesViewModal()
         .setMaxAndMinCaloricityChosen({ min: chosenCaloricity.value[0], max: chosenCaloricity.value[1] })
     closeModal()
+
+    if (route.path !== '/') {
+      router.push('/')
+      console.log('pushed')
+    }
   }
 
   const showClearButton = computed(() => {

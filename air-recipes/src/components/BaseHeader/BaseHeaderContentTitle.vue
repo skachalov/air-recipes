@@ -20,7 +20,7 @@
         <span
             style="width: 100%"
             class="description"
-            v-if="height > 292"
+            v-if="height > 200"
         >
           Best Recipes for Best People
         </span>

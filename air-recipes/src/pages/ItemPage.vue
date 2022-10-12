@@ -1,6 +1,6 @@
 <template>
   <v-container
-      class="pt-0 ps-16 pe-16 pb-16 item-page"
+      class="pt-0 ps-16 pe-16 item-page"
       fluid
   >
     <v-container

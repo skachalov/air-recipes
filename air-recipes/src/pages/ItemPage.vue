@@ -7,7 +7,10 @@
         class="pe-16 pb-16"
         fluid
     >
-      <base-progress v-if="!recipe" />
+      <base-progress
+          v-if="!recipe"
+          :warning="'Getting recipe...'"
+      />
       <v-row
           v-else
           class="pt-8 justify-center item-container"

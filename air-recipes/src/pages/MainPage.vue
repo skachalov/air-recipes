@@ -7,7 +7,10 @@
         class="ps-16 pe-16"
         fluid
     >
-      <base-progress v-if="!$store.state.recipes.recipes.length" />
+      <base-progress
+          v-if="!$store.state.recipes.recipes.length"
+          :warning="'Getting recipes list...'"
+      />
       <v-row class="pt-8 justify-center">
         <transition-group name="base-cards">
           <base-card

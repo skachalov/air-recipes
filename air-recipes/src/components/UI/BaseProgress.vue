@@ -9,7 +9,7 @@
           class="text-subtitle-1 text-center"
           cols="12"
       >
-        Getting recipes list...
+        {{ warning }}
       </v-col>
       <v-col cols="6">
         <v-progress-linear
@@ -22,3 +22,11 @@
     </v-row>
   </v-container>
 </template>
+
+<script setup>
+  import { defineProps } from "vue"
+
+  defineProps({
+    warning: String
+  })
+</script>

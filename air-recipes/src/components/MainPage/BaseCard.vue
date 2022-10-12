@@ -28,16 +28,10 @@
           </base-chip>
         </v-item-group>
       </v-img>
-      <v-card-title
-          class="mt-6 pt-0 pl-6 pr-6 text-wrap"
-          style="font-family: 'Gilroy ExtraBold'; font-size: 24px"
-      >
+      <v-card-title class="base-card-title mt-6 pt-0 pl-6 pr-6 text-wrap">
         <h3>{{ recipe.title }}</h3>
       </v-card-title>
-      <v-card-text
-          class="pl-6 pr-6 text-break"
-          style="font-size: 16px"
-      >
+      <v-card-text class="base-card-description pl-6 pr-6" >
         {{ cutWord(recipe.description) }}
       </v-card-text>
     </v-card>
@@ -63,6 +57,19 @@
 
     @media (max-width: 600px) {
       height: 425px !important;
+    }
+  }
+  .base-card-title {
+    font-family: 'Gilroy ExtraBold';
+    font-size: 24px;
+
+    @media (max-width: 500px) {
+      font-size: 20px;
+    }
+  }
+  .base-card-description {
+    @media (max-width: 500px) {
+      font-size: 14px;
     }
   }
   .evelate {

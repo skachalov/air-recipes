@@ -3,15 +3,16 @@
       class="pt-0 ps-16 pe-16 pb-16 item-page"
       fluid
   >
-    <v-container class="pe-16 pb-16" fluid>
+    <v-container
+        class="pe-16 pb-16"
+        fluid
+    >
       <base-progress v-if="!recipe" />
       <v-row
           v-else
           class="pt-8 justify-center item-container"
       >
-        <v-col
-            class="info-container"
-        >
+        <v-col class="info-container">
           <item-page-info
             :title="recipe.title"
             :description="recipe.description"
@@ -31,9 +32,7 @@
         </v-col>
 
         <v-col class="carousel-container">
-          <base-carousel
-            :images="recipe.images"
-          />
+          <base-carousel :images="recipe.images"/>
         </v-col>
       </v-row>
     </v-container>

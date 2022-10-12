@@ -17,9 +17,7 @@
           Air Recipes
         </h1>
       </v-row>
-      <v-row
-          class="ma-0"
-      >
+      <v-row class="ma-0">
         <span
             style="width: 100%"
             class="description"

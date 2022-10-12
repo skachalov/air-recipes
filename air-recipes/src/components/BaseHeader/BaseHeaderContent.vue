@@ -8,10 +8,8 @@
         class="base-header-content"
         :class="{ 'base-header-content-rolled': height <= 292 }"
     >
-      <base-header-title
-          :height="height"
-      />
-      <base-header-search-bar
+      <base-header-content-title :height="height"/>
+      <base-header-content-search-bar
           :height="height"
           @clickFilterButton="clickFilterButton"
           @searchRecipes="searchRecipes"
@@ -21,8 +19,8 @@
 </template>
 
 <script setup>
-  import BaseHeaderTitle from "@/components/BaseHeader/BaseHeaderTitle"
-  import BaseHeaderSearchBar from "@/components/BaseHeader/BaseHeaderSearchBar"
+  import BaseHeaderContentTitle from "@/components/BaseHeader/BaseHeaderContentTitle"
+  import BaseHeaderContentSearchBar from "@/components/BaseHeader/BaseHeaderContentSearchBar"
   import { defineProps, defineEmits } from "vue"
 
   defineProps({

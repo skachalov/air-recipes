@@ -50,10 +50,10 @@
   const router = useRouter()
 
   function showRecipes() {
+
     viewModel.getRecipesViewModal().setCuisinesIncluded(includedCuisines.value)
     viewModel.getRecipesViewModal()
         .setMaxAndMinCaloricityChosen({ min: chosenCaloricity.value[0], max: chosenCaloricity.value[1] })
-    closeModal()
 
     if (route.path !== '/') {
       router.push('/')

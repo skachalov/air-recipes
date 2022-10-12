@@ -1,7 +1,5 @@
 <template>
-  <v-row
-      class="align-center text"
-  >
+  <v-row class="align-center text">
     <v-col class="v-col-md-8 v-col-sm-9">
       <base-input
           class="input-container"
@@ -10,9 +8,7 @@
       />
     </v-col>
     <v-col class="v-col-md-4 v-col-sm-3 filter-button-container">
-      <base-filter-button
-          @click="clickFilterButton"
-      />
+      <base-filter-button @click="clickFilterButton"/>
     </v-col>
   </v-row>
 </template>

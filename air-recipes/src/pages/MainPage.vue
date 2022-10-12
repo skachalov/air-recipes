@@ -1,10 +1,14 @@
 <template>
-  <v-container class="pt-0 ps-0 pe-0 pb-16" fluid>
-    <v-container class="ps-16 pe-16" fluid>
+  <v-container
+      class="pt-0 ps-0 pe-0 pb-16"
+      fluid
+  >
+    <v-container
+        class="ps-16 pe-16"
+        fluid
+    >
       <base-progress v-if="!$store.state.recipes.recipes.length" />
-      <v-row
-          class="pt-8 justify-center"
-      >
+      <v-row class="pt-8 justify-center">
         <transition-group name="base-cards">
           <base-card
               v-for="recipe in getRecipes"

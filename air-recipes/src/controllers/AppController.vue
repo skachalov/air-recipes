@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-main >
-      <filter-modal-controller
-        v-if="$store.state.modal.isShownModal"
-      />
+    <v-main>
+      <transition name="modal">
+        <filter-modal-controller v-if="$store.state.modal.isShownModal"/>
+      </transition>
       <header-controller
           @changeHeaderHeight="changeHeaderHeight"
           @changeInnerWidth="changeInnerWidth"
@@ -50,3 +50,15 @@
     scrollVar.value = scroll
   }
 </script>
+
+<style scoped>
+  .modal-enter-active,
+  .modal-leave-active {
+    transition: opacity .1s ease;
+  }
+
+  .modal-enter-from,
+  .modal-leave-to {
+    opacity: 0;
+  }
+</style>

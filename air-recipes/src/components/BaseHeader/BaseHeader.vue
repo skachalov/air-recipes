@@ -4,9 +4,7 @@
       :style="{ height: height + 'px' }"
       fluid
   >
-    <v-row
-        class="ma-0 position-relative"
-    >
+    <v-row class="ma-0 position-relative">
       <v-col
           class="base-content-container"
           :class="{ 'v-col-lg-4 v-col-md-2 v-col-sm-12': height > 292 }"

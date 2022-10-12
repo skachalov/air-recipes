@@ -5,16 +5,16 @@
       fluid
   >
     <v-container class="modal">
-      <filter-modal-header @closeModal="closeModal" />
+      <filter-modal-header @closeModal="closeModal"/>
 
-      <v-row class=" justify-center">
+      <v-row class="justify-center">
         <base-checkbox
             v-for="cuisine in cuisines"
             :key = "cuisine.id"
             :val = "cuisine"
             :selected = "selectedCuisines"
             @updateSelected="updateSelected"
-        ></base-checkbox>
+        />
       </v-row>
 
       <v-row class="modal-slider">

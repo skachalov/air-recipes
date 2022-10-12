@@ -1,7 +1,5 @@
 <template>
-  <main-page
-      :getRecipes="$store.getters.getRecipes"
-  />
+  <main-page :getRecipes="$store.getters.getRecipes"/>
 </template>
 
 <script setup>

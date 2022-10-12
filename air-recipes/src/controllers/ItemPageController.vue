@@ -1,7 +1,5 @@
 <template>
-  <item-page
-      :recipe="$store.state.recipe.recipe"
-  />
+  <item-page :recipe="$store.state.recipe.recipe"/>
 </template>
 
 <script setup>

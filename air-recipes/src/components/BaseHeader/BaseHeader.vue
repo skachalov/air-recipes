@@ -7,7 +7,7 @@
     <v-row class="ma-0 position-relative">
       <v-col
           class="base-content-container"
-          :class="{ 'v-col-lg-4 v-col-md-2 v-col-sm-12': height > 292 }"
+          :class="{ 'v-col-lg-4 v-col-md-2 v-col-sm-12': height > 200 }"
       >
         <base-header-content
             :height="height"
@@ -19,7 +19,7 @@
           class="image-container
           v-col-lg-8 v-col-md-10 v-col-sm-12"
           :style="{ height: height + 'px'  }"
-          v-if="height > 292"
+          v-if="height > 200"
       >
         <base-header-image />
       </v-col>

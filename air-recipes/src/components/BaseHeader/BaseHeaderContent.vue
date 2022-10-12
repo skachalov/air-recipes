@@ -6,7 +6,7 @@
   >
     <v-row
         class="base-header-content"
-        :class="{ 'base-header-content-rolled': height <= 292 }"
+        :class="{ 'base-header-content-rolled': height <= 200 }"
     >
       <base-header-content-title :height="height"/>
       <base-header-content-search-bar

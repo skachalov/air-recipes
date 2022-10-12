@@ -39,6 +39,8 @@
       emits("changeScrollVar", 328)
     }
 
+    console.log(scrollVar, headerHeight.value)
+
     emits("changeHeaderHeight", headerHeight.value)
   }
 

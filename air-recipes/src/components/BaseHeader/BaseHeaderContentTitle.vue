@@ -12,7 +12,6 @@
         <h1
             class="title"
             :class="{ 'full-height title-rolled' : height <= 192 }"
-            @click="$router.push('/')"
         >
           Air Recipes
         </h1>
@@ -57,7 +56,6 @@
     font-family: "Gilroy ExtraBold";
     font-size: 64px;
     width: 100%;
-    cursor: pointer;
 
     @media(max-width: 960px) {
       width: auto !important;

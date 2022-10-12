@@ -15,11 +15,11 @@
 
 <script setup>
   import FilterModal from "@/components/FilterModal/FilterModal"
-  import { useStore } from "vuex"
-  import { ref, onMounted, computed } from "vue"
-  import { viewModel } from "@/model/viewModelSingleton"
   import { compareArrays } from "@/helpers/compareArrays"
-  import { useRoute, useRouter } from "vue-router";
+  import { ref, onMounted, computed } from "vue"
+  import { useStore } from "vuex"
+  import { useRoute, useRouter } from "vue-router"
+  import { viewModel } from "@/model/viewModelSingleton"
 
   const store = useStore()
   let includedCuisines = ref([])
@@ -41,6 +41,12 @@
     viewModel.getModalViewModel().switchIsShownModal()
   }
 
+  const showClearButton = computed(() => {
+    return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
+        && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
+        && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
+  })
+
   function clearParams() {
     viewModel.getRecipesViewModal().setFilterParamsToDefault()
     getDefaultParams()
@@ -57,15 +63,8 @@
 
     if (route.path !== '/') {
       router.push('/')
-      console.log('pushed')
     }
   }
-
-  const showClearButton = computed(() => {
-    return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
-        && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
-        && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
-  })
 
   function updateSelected(val) {
     includedCuisines.value = includedCuisines.value.indexOf(val) === -1

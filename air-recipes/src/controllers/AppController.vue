@@ -21,7 +21,7 @@
 <script setup>
   import FilterModalController from "@/controllers/FilterModalController"
   import HeaderController from "@/controllers/HeaderController"
-  import { ref, computed } from "vue";
+  import { ref, computed } from "vue"
 
   let headerHeight = ref(600)
   let scrollVar = ref(0)
@@ -29,9 +29,12 @@
   let innerWidth = ref(window.innerWidth)
 
   const computeMargin = computed(() =>
-      scrollReaction.value
-          ? headerHeight.value + scrollVar.value + 10 + 'px'
-          : '150px'
+  {
+    console.log('comp ' + headerHeight.value + " " + scrollVar.value)
+    return scrollReaction.value
+        ? headerHeight.value + scrollVar.value + 10 + 'px'
+        : '150px'
+  }
   )
 
   function changeHeaderHeight(height) {

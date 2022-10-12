@@ -14,7 +14,7 @@
       />
     </v-carousel>
 
-    <div class="thumb-container">
+    <div class="thumb-container" v-show="images.length > 1">
       <base-thumb
         v-for="(image, idx) in images"
         :key="image"

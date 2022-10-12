@@ -21,13 +21,15 @@
     list-style-type: none;
   }
  .count-bullet {
-   width: 16px;
+   min-width: 16px;
    height: 16px;
    border: 1px solid #DDDDDD;
    border-radius: 50%;
    margin-right: 8px;
    display: flex;
    justify-content: center;
+   align-self: start;
+   margin-top: 3px;
    font-size: 9px;
    font-weight: 700;
  }

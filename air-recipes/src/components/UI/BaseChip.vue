@@ -1,8 +1,18 @@
 <template>
   <v-chip
+      class="base-chip"
       variant="filter"
-      style="background-color: white"
   >
     <slot />
   </v-chip>
 </template>
+
+<style lang="scss" scoped>
+  .base-chip {
+    background-color: white;
+
+    @media (max-width: 420px) {
+      font-size: 11px;
+    }
+  }
+</style>

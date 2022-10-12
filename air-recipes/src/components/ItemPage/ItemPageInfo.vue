@@ -14,7 +14,7 @@
       <base-info
           :icon-name="'mdi-chef-hat'"
           :color="defineColor(difficulty)">
-        {{ difficulty }}
+        {{ firstLetterToUpper(difficulty) }}
       </base-info>
       <base-info
           :icon-name="'mdi-clock-outline'">
@@ -34,6 +34,7 @@
 
 <script setup>
   import formatTime from "@/helpers/formatTime"
+  import { firstLetterToUpper } from "@/helpers/firstLetterToUpper"
   import { defineProps } from "vue"
   import BaseInfo from "@/components/UI/BaseInfo"
 

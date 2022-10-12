@@ -6,7 +6,7 @@
   import MainPage from "@/pages/MainPage"
   import { onMounted } from "vue"
   import { useStore } from "vuex"
-  import { viewModel } from "@/storage"
+  import { viewModel } from "@/model/viewModelSingleton"
 
   const store = useStore()
 

@@ -10,7 +10,7 @@
 <script setup>
   import BaseHeader from "@/components/BaseHeader/BaseHeader"
   import { ref, onMounted, defineEmits } from "vue"
-  import { viewModel } from "@/storage"
+  import { viewModel } from "@/model/viewModelSingleton"
 
   const DEFAULT_HEADER_HEIGHT = 600
   let headerHeight = ref(600)

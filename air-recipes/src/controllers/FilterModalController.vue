@@ -17,7 +17,7 @@
   import FilterModal from "@/components/FilterModal/FilterModal"
   import { useStore } from "vuex"
   import { ref, onMounted, computed } from "vue"
-  import { viewModel } from "@/storage"
+  import { viewModel } from "@/model/viewModelSingleton"
   import { compareArrays } from "@/helpers/compareArrays"
   import { useRoute, useRouter } from "vue-router";
 

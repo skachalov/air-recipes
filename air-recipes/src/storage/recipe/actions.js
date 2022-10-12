@@ -1,5 +1,5 @@
-import {fetchGetRecipe} from "@/services/API/recipe";
-import {viewModel} from "@/storage";
+import { fetchGetRecipe } from "@/services/API/recipe"
+import { viewModel } from "@/model/viewModelSingleton"
 
 export default {
     async fetchRecipe(context, id) {

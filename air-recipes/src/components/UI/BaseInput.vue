@@ -6,6 +6,7 @@
       max-height="56"
   >
     <v-text-field
+        class="base-input-text-field"
         :value="modelValue"
         @input="updateInput"
         @focus="switchFocus"
@@ -15,12 +16,13 @@
         clearable
         @click:clear="clearInput"
         prepend-inner-icon="mdi-magnify"
+
     ></v-text-field>
   </v-responsive>
 </template>
 
 <script setup>
-  import { ref, defineProps, defineEmits } from "vue";
+  import { ref, defineProps, defineEmits } from "vue"
 
   const inFocus = ref(false)
 
@@ -31,7 +33,7 @@
   defineProps({
     modelValue: String
   })
-  const emit = defineEmits(["update:modelValue"])
+  const emit = defineEmits(["update:modelValue", "clearButtonClicked"])
 
   function updateInput(event) {
     emit("update:modelValue", event.target.value)
@@ -39,5 +41,12 @@
 
   function clearInput() {
     emit("update:modelValue", "")
+    emit("clearButtonClicked")
   }
 </script>
+
+<style>
+  .base-input-text-field .v-icon {
+    color: rgba(169, 169, 169, 1) !important;
+  }
+</style>

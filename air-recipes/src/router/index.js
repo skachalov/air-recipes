@@ -1,17 +1,5 @@
 import {createRouter, createWebHistory} from "vue-router"
-import MainPageController from "@/controllers/MainPageController"
-import ItemPageController from "@/controllers/ItemPageController"
-
-const routes = [
-    {
-        path: "/",
-        component: MainPageController
-    },
-    {
-        path: "/:id",
-        component: ItemPageController
-    }
-]
+import { routes } from "@/router/routes"
 
 export default createRouter({
     routes,

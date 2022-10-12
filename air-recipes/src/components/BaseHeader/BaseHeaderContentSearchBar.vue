@@ -5,6 +5,7 @@
           class="input-container"
           v-model="searchLine"
           @keydown.enter="searchRecipes"
+          @clearButtonClicked="clearButtonClicked"
       />
     </v-col>
     <v-col class="v-col-md-4 v-col-sm-3 filter-button-container">
@@ -39,6 +40,10 @@
     }
 
     emits('searchRecipes', searchLine.value)
+  }
+
+  function clearButtonClicked() {
+    searchRecipes()
   }
 </script>
 

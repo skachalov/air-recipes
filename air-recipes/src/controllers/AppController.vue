@@ -6,7 +6,6 @@
       </transition>
       <header-controller
           @changeHeaderHeight="changeHeaderHeight"
-          @changeInnerWidth="changeInnerWidth"
           @setScrollReaction="setScrollReaction"
           @changeScrollVar="changeScrollVar"
       />
@@ -26,23 +25,14 @@
   let headerHeight = ref(600)
   let scrollVar = ref(0)
   let scrollReaction = ref(true)
-  let innerWidth = ref(window.innerWidth)
 
-  const computeMargin = computed(() =>
-  {
-    console.log('comp ' + headerHeight.value + " " + scrollVar.value)
-    return scrollReaction.value
+  const computeMargin = computed(() => scrollReaction.value
         ? headerHeight.value + scrollVar.value + 10 + 'px'
         : '150px'
-  }
   )
 
   function changeHeaderHeight(height) {
     headerHeight.value = height
-  }
-
-  function changeInnerWidth(width) {
-    innerWidth.value = width
   }
 
   function setScrollReaction(flag) {

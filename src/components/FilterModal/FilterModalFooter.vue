@@ -1,13 +1,15 @@
 <template>
   <v-row class="modal-buttons">
     <v-col class="clear-btn">
-      <base-button
-          v-show="showClearBtn"
-          :is-dark="false"
-          @click="clearParams"
-      >
-        CLEAR
-      </base-button>
+      <transition name="clear-btn-transition">
+        <base-button
+            v-show="showClearBtn"
+            :is-dark="false"
+            @click="clearParams"
+        >
+          CLEAR
+        </base-button>
+      </transition>
     </v-col>
     <v-col class="show-btn">
       <base-button
@@ -54,5 +56,18 @@
     display: flex;
     justify-content: end;
     padding-right: 28px;
+  }
+
+  .clear-btn-transition-item {
+    display: inline-block;
+  }
+  .clear-btn-transition-enter-active,
+  .clear-btn-transition-leave-active {
+    transition: all .5s ease;
+  }
+  .clear-btn-transition-enter-from,
+  .clear-btn-transition-leave-to {
+    opacity: 0;
+    transform: translateY(-15px);
   }
 </style>

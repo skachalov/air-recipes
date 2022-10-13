@@ -10,6 +10,7 @@
     >
       <base-header-content-title :height="height"/>
       <base-header-content-search-bar
+          class="s-b"
           :height="height"
           @clickFilterButton="clickFilterButton"
           @searchRecipes="searchRecipes"

@@ -7,6 +7,4 @@ module.exports = defineConfig({
 			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
 		}
   },
-
-  publicPath: '/air-recipes/'
 })

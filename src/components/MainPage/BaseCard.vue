@@ -1,7 +1,7 @@
 <template>
     <v-card
         class="mx-auto base-card ms-3 me-3 mb-6"
-        :class="{'evelate': mouseoverCard}"
+        :class="{ 'evelate': mouseoverCard }"
         width="348"
         height="384"
         @mouseover="mouseoverCard = true"

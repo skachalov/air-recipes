@@ -1,5 +1,5 @@
 <template>
-  <v-row style="display: block">
+  <v-row style="display: block;">
     <v-row class="info-title">
       <h2>
         {{ title }}

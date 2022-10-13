@@ -1,13 +1,13 @@
-import MainPageController from "@/controllers/MainPageController";
-import ItemPageController from "@/controllers/ItemPageController";
+import MainPageController from "@/controllers/MainPageController"
+import ItemPageController from "@/controllers/ItemPageController"
 
 export const routes = [
     {
-        path: "/",
+        path: "/air-recipes",
         component: MainPageController
     },
     {
-        path: "/:id",
+        path: "/air-recipes/:id",
         component: ItemPageController
     }
 ]

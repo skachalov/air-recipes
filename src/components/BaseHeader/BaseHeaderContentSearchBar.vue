@@ -18,14 +18,10 @@
   import BaseFilterButton from "@/components/UI/BaseFilterButton"
   import BaseInput from "@/components/UI/BaseInput"
   import { ref, defineEmits, defineProps } from "vue"
-  import { useRoute, useRouter } from "vue-router"
 
   defineProps({
     height: Number
   })
-
-  const route = useRoute()
-  const router = useRouter()
 
   const searchLine = ref("")
   const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
@@ -35,10 +31,6 @@
   }
 
   function searchRecipes() {
-    if (route.path !== '/') {
-      router.push('/')
-    }
-
     emits('searchRecipes', searchLine.value)
   }
 

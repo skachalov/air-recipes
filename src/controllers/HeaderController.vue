@@ -10,6 +10,7 @@
   import BaseHeader from "@/components/BaseHeader/BaseHeader"
   import { ref, onMounted, defineEmits } from "vue"
   import { viewModel } from "@/model/viewModelSingleton"
+  import { useRoute, useRouter } from "vue-router"
 
   const DEFAULT_HEADER_HEIGHT = 600
   let headerHeight = ref(600)
@@ -37,8 +38,6 @@
       emits("changeScrollVar", 328)
     }
 
-    console.log(headerHeight.value, scrollVar)
-
     emits("changeHeaderHeight", headerHeight.value)
   }
 
@@ -62,7 +61,14 @@
     viewModel.getModalViewModel().switchIsShownModal()
   }
 
+  const route = useRoute()
+  const router = useRouter()
+
   function searchRecipes(searchLine) {
+    if (route.path !== '/air-recipes/') {
+      router.push('/air-recipes/')
+    }
+
     viewModel.getRecipesViewModal().setSearchLine(searchLine)
   }
 </script>

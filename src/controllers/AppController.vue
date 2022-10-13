@@ -10,6 +10,7 @@
           @changeScrollVar="changeScrollVar"
       />
       <router-view
+          class="router-view"
           :style="{ 'margin-top': computeMargin }"
           :key="$route.fullPath">
       </router-view>
@@ -26,9 +27,9 @@
   let scrollVar = ref(0)
   let scrollReaction = ref(true)
 
-  const computeMargin = computed(() => scrollReaction.value
-        ? headerHeight.value + scrollVar.value + 10 + 'px'
-        : '150px'
+  const computeMargin = computed(() => !scrollReaction.value
+        ? '150px'
+        : headerHeight.value + scrollVar.value + 10 + 'px'
   )
 
   function changeHeaderHeight(height) {
@@ -45,6 +46,10 @@
 </script>
 
 <style scoped>
+  .router-view {
+    transition: margin-top .5s;
+
+  }
   .modal-enter-active,
   .modal-leave-active {
     transition: opacity .2s ease;

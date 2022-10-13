@@ -61,8 +61,8 @@
     viewModel.getRecipesViewModal()
         .setMaxAndMinCaloricityChosen({ min: chosenCaloricity.value[0], max: chosenCaloricity.value[1] })
 
-    if (route.path !== '/') {
-      router.push('/')
+    if (route.path !== '/air-recipes/') {
+      router.push('/air-recipes/')
     }
   }
 

@@ -1,13 +1,13 @@
 <template>
-  <li class="mb-3">
-    {{ ingredient }}
-  </li>
+    <li class="mb-3">
+        {{ ingredient }}
+    </li>
 </template>
 
 <script setup>
-  import { defineProps } from "vue"
+    import { defineProps } from "vue"
 
-  defineProps({
-    ingredient: String
-  })
+    defineProps({
+        ingredient: String
+    })
 </script>

@@ -1,27 +1,27 @@
 <template>
-  <v-chip
-      class="base-chip"
-      variant="filter"
-  >
-    {{ text }}
-  </v-chip>
+    <v-chip
+        class="base-chip"
+        variant="filter"
+    >
+        {{ text }}
+    </v-chip>
 </template>
 
 <script setup>
-  import { defineProps } from "vue"
+    import { defineProps } from "vue"
 
-  defineProps({
-    text: String
-  })
+    defineProps({
+        text: String
+    })
 </script>
 
 <style lang="scss" scoped>
-  .base-chip {
-    background-color: white;
-    cursor: pointer;
+    .base-chip {
+        background-color: white;
+        cursor: pointer;
 
-    @media (max-width: 420px) {
-      font-size: 11px;
+        @media (max-width: 420px) {
+            font-size: 11px;
+        }
     }
-  }
 </style>

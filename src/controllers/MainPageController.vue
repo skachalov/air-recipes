@@ -1,18 +1,18 @@
 <template>
-  <main-page :getRecipes="$store.getters.getRecipes"/>
+    <main-page :getRecipes="$store.getters.getRecipes"/>
 </template>
 
 <script setup>
-  import MainPage from "@/pages/MainPage"
-  import { onMounted } from "vue"
-  import { useStore } from "vuex"
-  import { viewModel } from "@/model/viewModelSingleton"
+    import MainPage from "@/pages/MainPage"
+    import { onMounted } from "vue"
+    import { useStore } from "vuex"
+    import { viewModel } from "@/model/viewModelSingleton"
 
-  const store = useStore()
+    const store = useStore()
 
-  onMounted(() => {
-    if (!store.state.recipes.recipes.length) {
-      viewModel.getRecipesViewModal().fetchRecipes()
-    }
-  })
+    onMounted(() => {
+        if (!store.state.recipes.recipes.length) {
+            viewModel.getRecipesViewModal().fetchRecipes()
+        }
+    })
 </script>

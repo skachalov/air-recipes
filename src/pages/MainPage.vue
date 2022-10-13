@@ -11,6 +11,10 @@
           v-if="!$store.state.recipes.recipes.length"
           :warning="'Getting recipes list...'"
       />
+      <base-warning
+          v-if="!getRecipes.length"
+          :warn="`Recipe with title '${ $store.state.recipes.searchLine }' not found`"
+      />
       <v-row class="pt-8 justify-center">
         <transition-group name="base-cards">
           <base-card
@@ -28,6 +32,7 @@
   import BaseCard from "@/components/MainPage/BaseCard"
   import BaseProgress from "@/components/UI/BaseProgress"
   import { defineProps } from "vue"
+  import BaseWarning from "@/components/UI/BaseWarning";
 
   defineProps({
     getRecipes: Array

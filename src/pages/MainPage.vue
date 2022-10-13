@@ -15,7 +15,7 @@
           v-if="!getRecipes.length"
           :warn="`Recipe with title '${ $store.state.recipes.searchLine }' not found`"
       />
-      <v-row class="pt-8 justify-center">
+      <v-row class="pt-8 cards-container">
         <transition-group name="base-cards">
           <base-card
               v-for="recipe in getRecipes"
@@ -40,6 +40,11 @@
 </script>
 
 <style scoped>
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-gap: 0.25em;
+  }
   .base-cards-item {
     display: inline-block;
   }

@@ -47,7 +47,7 @@
 
 <style scoped>
   .router-view {
-    transition: margin-top .5s;
+    /*transition: margin-top .5s;*/
 
   }
   .modal-enter-active,

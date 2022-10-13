@@ -17,15 +17,12 @@
             style="display: flex"
             class="fill-height justify-end align-end pr-4 pb-4"
         >
-          <base-chip>
-            {{formatTime(recipe.cookTime)}}
-          </base-chip>
-          <base-chip class="mr-2 ml-2">
-            {{recipe.caloricity}} kCal
-          </base-chip>
-          <base-chip>
-            {{recipe.cuisine.title}}
-          </base-chip>
+          <base-chip :text="formatTime(recipe.cookTime)"/>
+          <base-chip
+              class="mr-2 ml-2"
+              :text="recipe.caloricity + 'kCal'"
+          />
+          <base-chip :text="recipe.cuisine.title"/>
         </v-item-group>
       </v-img>
       <v-card-title class="base-card-title mt-6 pt-0 pl-6 pr-6 text-wrap">
@@ -38,10 +35,10 @@
 </template>
 
 <script setup>
-  import { ref, defineProps } from "vue"
-  import BaseChip from "@/components/UI/BaseChip"
   import formatTime from "@/helpers/formatTime"
   import cutWord from "@/helpers/cutWord"
+  import BaseChip from "@/components/UI/BaseChip"
+  import { ref, defineProps } from "vue"
 
   defineProps({
     recipe: Object

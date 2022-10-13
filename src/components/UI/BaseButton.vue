@@ -8,10 +8,10 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue"
-defineProps({
-  isDark: Boolean
-})
+  import { defineProps } from "vue"
+  defineProps({
+    isDark: Boolean
+  })
 </script>
 
 <style scoped>

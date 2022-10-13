@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-  import BaseCard from "@/components/MainPage/BaseCard"
+  import BaseCard from "@/components/UI/BaseCard"
   import BaseProgress from "@/components/UI/BaseProgress"
   import { defineProps } from "vue"
   import BaseWarning from "@/components/UI/BaseWarning";

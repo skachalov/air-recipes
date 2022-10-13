@@ -8,7 +8,7 @@
         class="base-info-icon"
         :icon="iconName"
     />
-    <slot />
+    {{ text }}
   </div>
 </template>
 
@@ -16,6 +16,7 @@
   import { defineProps } from "vue"
 
   defineProps({
+    text: String,
     iconName: String,
     color: String
   })

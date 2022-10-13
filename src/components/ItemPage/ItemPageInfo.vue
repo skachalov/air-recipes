@@ -12,22 +12,22 @@
 
     <v-row>
       <base-info
+          :text="firstLetterToUpper(difficulty)"
           :icon-name="'mdi-chef-hat'"
-          :color="defineColor(difficulty)">
-        {{ firstLetterToUpper(difficulty) }}
-      </base-info>
+          :color="defineColor(difficulty)"
+      />
       <base-info
-          :icon-name="'mdi-clock-outline'">
-        {{ formatTime(cookTime) }}
-      </base-info>
+          :text="formatTime(cookTime)"
+          :icon-name="'mdi-clock-outline'"
+      />
       <base-info
-          :icon-name="'mdi-fire'">
-        {{ caloricity }} kCal
-      </base-info>
+          :text="caloricity + 'kCal'"
+          :icon-name="'mdi-fire'"
+      />
       <base-info
-          :icon-name="'mdi-web'">
-        {{ cuisine }}
-      </base-info>
+          :text="cuisine"
+          :icon-name="'mdi-web'"
+      />
     </v-row>
   </v-row>
 </template>

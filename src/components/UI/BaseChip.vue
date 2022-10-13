@@ -3,9 +3,17 @@
       class="base-chip"
       variant="filter"
   >
-    <slot />
+    {{ text }}
   </v-chip>
 </template>
+
+<script setup>
+  import { defineProps } from "vue"
+
+  defineProps({
+    text: String
+  })
+</script>
 
 <style lang="scss" scoped>
   .base-chip {

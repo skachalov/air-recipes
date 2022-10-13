@@ -8,5 +8,7 @@ module.exports = defineConfig({
 		}
   },
 
-  publicPath: '/air-recipes/'
+  publicPath: process.env.NODE_ENV === 'production'
+      ? '/air-recipes/'
+      : '/'
 })

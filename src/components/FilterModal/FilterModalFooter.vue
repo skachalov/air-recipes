@@ -3,7 +3,7 @@
     <v-col class="clear-btn">
       <transition name="clear-btn-transition">
         <base-button
-            v-show="showClearBtn"
+            v-if="showClearBtn"
             :is-dark="false"
             @click="clearParams"
         >
@@ -27,7 +27,10 @@
   import { defineProps, defineEmits } from "vue"
 
   defineProps({
-    showClearBtn: Boolean
+    showClearBtn: {
+      type: Boolean,
+      default: false
+    }
   })
 
   const emits = defineEmits(["clearParams", "showRecipes"])

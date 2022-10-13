@@ -42,7 +42,9 @@
   }
 
   const showClearButton = computed(() => {
-    return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
+      if (!includedCuisines.value.length) return false
+
+      return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
         && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
         && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
   })

@@ -13,7 +13,7 @@
             />
             <base-warning
                 v-else-if="!getRecipes.length"
-                :warn="`Recipe with title '${ $store.state.recipes.searchLine }' not found`"
+                :warn="'Recipes not found'"
             />
             <v-row class="pt-8 cards-container">
                 <transition-group name="base-cards">

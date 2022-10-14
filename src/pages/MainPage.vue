@@ -12,7 +12,7 @@
                 :warning="'Getting recipes list...'"
             />
             <base-warning
-                v-if="!getRecipes.length"
+                v-else-if="!getRecipes.length"
                 :warn="`Recipe with title '${ $store.state.recipes.searchLine }' not found`"
             />
             <v-row class="pt-8 cards-container">

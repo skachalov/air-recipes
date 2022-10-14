@@ -6,7 +6,8 @@
     >
         <v-row
             class="base-header-content"
-            :class="{ 'base-header-content-rolled': height <= 200 }"
+            :class="{ 'base-header-content-rolled': height <= 200,
+             'base-header-content-full': height > 200 }"
         >
             <base-header-content-title :height="height"/>
             <base-header-content-search-bar
@@ -54,9 +55,30 @@
         margin-left: 4%;
         width: 100%;
         height: 80px;
+        animation-duration: .3s;
+        animation-name: rolling;
 
         @media(max-width: 960px) {
             margin-left: 0;
+        }
+    }
+
+    @keyframes rolling {
+        from {
+            opacity: 0;
+            padding-bottom: 30px;
+        }
+    }
+
+    .base-header-content-full {
+        animation-duration: .3s;
+        animation-name: full;
+    }
+
+    @keyframes full {
+        from {
+            opacity: 0;
+            padding-top: 30px;
         }
     }
 </style>

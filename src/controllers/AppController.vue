@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app class="app-container">
         <v-main>
             <transition name="modal">
                 <filter-modal-controller v-if="$store.state.modal.isShownModal"/>
@@ -10,6 +10,7 @@
                 @changeScrollVar="changeScrollVar"
             />
             <router-view
+                class="router-view"
                 :style="{ 'margin-top': computeMargin }"
                 :key="$route.fullPath">
             </router-view>
@@ -45,6 +46,12 @@
 </script>
 
 <style scoped>
+    html, body, #app {
+        height: 100%;
+    }
+    .app-container {
+        height: 140%;
+    }
     .modal-enter-active,
     .modal-leave-active {
         transition: opacity .2s ease;

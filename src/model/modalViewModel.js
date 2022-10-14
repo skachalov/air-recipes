@@ -6,4 +6,8 @@ export default class ModalViewModel {
     switchIsShownModal() {
         this._store.dispatch("switchIsShownModal")
     }
+
+    changeIsAnyFilter(value) {
+        this._store.dispatch("changeIsAnyFilter", value)
+    }
 }

@@ -27,10 +27,10 @@
     let chosenCaloricity = ref([])
 
     onMounted(() => {
-        getDefaultParams()
+        getChosenParams()
     })
 
-    function getDefaultParams() {
+    function getChosenParams() {
         includedCuisines.value = [...store.state.recipes.cuisinesIncludedChosen]
         caloricityRange.value =
             [store.state.recipes.caloricityChosen.min, store.state.recipes.caloricityChosen.max]
@@ -42,15 +42,22 @@
     }
 
     const showClearButton = computed(() => {
-        if (!includedCuisines.value.length) return false
+        if (!store.state.modal.isAnyFilter) return false
 
         return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
             && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
             && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
     })
 
+    function getDefaultParams() {
+        includedCuisines.value = [...store.state.recipes.cuisinesIncludedDefault]
+        caloricityRange.value =
+            [store.state.recipes.caloricityDefault.min, store.state.recipes.caloricityDefault.max]
+        chosenCaloricity.value = [...caloricityRange.value]
+    }
+
     function clearParams() {
-        viewModel.getRecipesViewModal().setFilterParamsToDefault()
+        viewModel.getModalViewModel().changeIsAnyFilter(false)
         getDefaultParams()
     }
 
@@ -68,12 +75,14 @@
     }
 
     function updateSelected(val) {
+        viewModel.getModalViewModel().changeIsAnyFilter(true)
         includedCuisines.value = includedCuisines.value.indexOf(val) === -1
             ? [...includedCuisines.value, (val)]
             : includedCuisines.value.filter(c => c !== val)
     }
 
     function updateSelectedRange(val) {
+        viewModel.getModalViewModel().changeIsAnyFilter(true)
         chosenCaloricity.value = [...val]
     }
 </script>

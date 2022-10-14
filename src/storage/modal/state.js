@@ -1,3 +1,4 @@
 export default {
-    isShownModal: false
+    isShownModal: false,
+    isAnyFilter: false
 }

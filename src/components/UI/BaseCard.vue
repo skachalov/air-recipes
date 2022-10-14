@@ -1,11 +1,8 @@
 <template>
     <v-card
         class="mx-auto base-card mb-6"
-        :class="{ 'evelate': mouseoverCard }"
         width="348"
         height="384"
-        @mouseover="mouseoverCard = true"
-        @mouseleave="mouseoverCard = false"
         @click.passive="$router.push(`${recipe.id}`)"
     >
         <v-img
@@ -38,13 +35,11 @@
     import formatTime from "@/helpers/formatTime"
     import cutWord from "@/helpers/cutWord"
     import BaseChip from "@/components/UI/BaseChip"
-    import { ref, defineProps } from "vue"
+    import { defineProps } from "vue"
 
     defineProps({
         recipe: Object
     })
-
-    const mouseoverCard = ref(false)
 </script>
 
 <style lang="scss" scoped>
@@ -72,7 +67,7 @@
         }
     }
 
-    .evelate {
+    .base-card:hover {
         transform: translateY(-5px);
     }
 </style>

@@ -7,6 +7,9 @@
 </script>
 
 <style>
+    html, body, #app {
+        height: 100%;
+    }
     @font-face {
         font-family: "Gilroy ExtraBold";
         src: url("fonts/gilroy-extrabold.ttf") format("truetype");

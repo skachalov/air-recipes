@@ -58,10 +58,6 @@
     </script>
 
 <style lang="scss" scoped>
-    .anim {
-        transition: .5s;
-    }
-
     .item-page {
         @media(max-width: 600px) {
             padding-left: 20px !important;

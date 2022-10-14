@@ -50,6 +50,10 @@
         display: inline-block;
     }
 
+    .base-cards-leave-active {
+        position: absolute;
+    }
+
     .base-cards-enter-active,
     .base-cards-leave-active {
         transition: all .7s ease;

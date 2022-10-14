@@ -9,11 +9,14 @@
                 @setScrollReaction="setScrollReaction"
                 @changeScrollVar="changeScrollVar"
             />
-            <router-view
-                class="router-view"
-                :style="{ 'margin-top': computeMargin }"
-                :key="$route.fullPath">
-            </router-view>
+            <div
+                :style="{ 'padding-top': computePadding }"
+                class="router-view-container"
+            >
+                <router-view
+                    :key="$route.fullPath">
+                </router-view>
+            </div>
         </v-main>
     </v-app>
 </template>
@@ -27,9 +30,10 @@
     let scrollVar = ref(0)
     let scrollReaction = ref(true)
 
-    const computeMargin = computed(() => !scrollReaction.value
-        ? '150px'
-        : headerHeight.value + scrollVar.value + 10 + 'px'
+    const computePadding = computed(() =>
+        !scrollReaction.value
+            ? '150px'
+            : headerHeight.value + scrollVar.value + 'px'
     )
 
     function changeHeaderHeight(height) {
@@ -46,12 +50,14 @@
 </script>
 
 <style scoped>
-    html, body, #app {
-        height: 100%;
-    }
     .app-container {
         height: 140%;
     }
+
+    .router-view-container {
+        transition: .5s;
+    }
+
     .modal-enter-active,
     .modal-leave-active {
         transition: opacity .2s ease;

@@ -27,10 +27,10 @@
     let chosenCaloricity = ref([])
 
     onMounted(() => {
-        getChosenParams()
+        getDefaultParams()
     })
 
-    function getChosenParams() {
+    function getDefaultParams() {
         includedCuisines.value = [...store.state.recipes.cuisinesIncludedChosen]
         caloricityRange.value =
             [store.state.recipes.caloricityChosen.min, store.state.recipes.caloricityChosen.max]
@@ -49,16 +49,11 @@
             && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
     })
 
-    function getDefaultParams() {
-        includedCuisines.value = [...store.state.recipes.cuisinesIncludedDefault]
-        caloricityRange.value =
-            [store.state.recipes.caloricityDefault.min, store.state.recipes.caloricityDefault.max]
-        chosenCaloricity.value = [...caloricityRange.value]
-    }
-
     function clearParams() {
         viewModel.getModalViewModel().changeIsAnyFilter(false)
+        viewModel.getRecipesViewModal().setFilterParamsToDefault()
         getDefaultParams()
+        closeModal()
     }
 
     const route = useRoute()
@@ -72,6 +67,8 @@
         viewModel.getRecipesViewModal().setCuisinesIncluded(includedCuisines.value)
         viewModel.getRecipesViewModal()
             .setMaxAndMinCaloricityChosen({min: chosenCaloricity.value[0], max: chosenCaloricity.value[1]})
+
+        closeModal()
     }
 
     function updateSelected(val) {

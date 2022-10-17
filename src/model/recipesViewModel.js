@@ -30,4 +30,8 @@ export default class RecipesViewModel {
     setMaxAndMinCaloricityChosen(caloricity) {
         this._store.dispatch("setMaxAndMinCaloricityChosen", caloricity)
     }
+
+    setFilterParamsToDefault() {
+        this._store.dispatch("setFilterParamsToDefault")
+    }
 }

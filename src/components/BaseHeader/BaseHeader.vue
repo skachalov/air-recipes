@@ -53,6 +53,10 @@
         background-color: white;
         position: fixed;
         z-index: 2;
+
+        @media(max-width: 390px) {
+          max-width: 96% !important;
+        }
     }
 
     .base-content-container {

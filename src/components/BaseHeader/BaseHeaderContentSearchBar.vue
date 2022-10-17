@@ -70,7 +70,7 @@
             max-width: 27%;
         }
         @media (max-width: 450px) {
-            max-width: 20%;
+            max-width: 23%;
         }
     }
 </style>

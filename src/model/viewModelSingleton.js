@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import RecipesViewModel from "@/model/recipesViewModel"
 import RecipeViewModel from "@/model/recipeViewModel"
 import ModalViewModel from "@/model/modalViewModel"
@@ -26,17 +25,3 @@ class ViewModelSingleton {
 }
 
 export const viewModel = new ViewModelSingleton(store)
-=======
-import { createStore } from "vuex"
-import recipes from "@/storage/recipes"
-import recipe from "@/storage/recipe"
-import modal from "@/storage/modal"
-
-export default createStore({
-    modules: {
-        recipes,
-        recipe,
-        modal
-    }
-})
->>>>>>> recipes-5-refactoring

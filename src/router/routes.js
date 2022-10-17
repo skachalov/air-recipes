@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import MainPageController from "@/controllers/MainPageController"
 import ItemPageController from "@/controllers/ItemPageController"
 
@@ -12,12 +11,3 @@ export const routes = [
         component: ItemPageController
     }
 ]
-=======
-import {createRouter, createWebHistory} from "vue-router"
-import { routes } from "@/router/routes"
-
-export default createRouter({
-    routes,
-    history: createWebHistory()
-})
->>>>>>> recipes-5-refactoring

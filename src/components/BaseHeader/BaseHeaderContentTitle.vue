@@ -39,11 +39,9 @@
 <style lang="scss" scoped>
     .base-header-title {
         margin: 0;
-        //transition: height .5s ease-in;
 
         @media (max-width: 960px) {
             width: 100% !important;
-            margin-bottom: 8px;
         }
     }
 

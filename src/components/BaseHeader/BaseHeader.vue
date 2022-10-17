@@ -1,6 +1,7 @@
 <template>
     <v-container
         class="base-header"
+        :class="{ 'base-header-shadow': height < 600 }"
         :style="{ height: height + 'px' }"
         fluid
     >
@@ -52,6 +53,10 @@
         background-color: white;
         position: fixed;
         z-index: 2;
+    }
+
+    .base-header-shadow {
+        box-shadow: 0px 3px 8px -3px rgba(34, 60, 80, 0.2);
     }
 
     .base-content-container {

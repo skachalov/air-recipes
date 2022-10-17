@@ -1,17 +1,27 @@
 <template>
-    <img
-        :src="imageURL"
-        class="base-header-image"
-    />
+  <img
+      :src="imageURL"
+      class="base-header-image"
+  />
 </template>
 
 <script setup>
-    import { imageURL } from "@/const/URL"
+import {imageURL} from "@/const/URL"
 </script>
 
 <style lang="scss" scoped>
-    .base-header-image {
-        transform: scaleX(-1);
-        width: 100%;
+  .base-header-image {
+    transform: scaleX(-1);
+    width: 86%;
+    right: 0;
+    position: absolute;
+
+    @media(max-width: 1400px) {
+      right: -100px;
     }
+
+    @media(max-width: 1080px) {
+      right: -140px;
+    }
+  }
 </style>

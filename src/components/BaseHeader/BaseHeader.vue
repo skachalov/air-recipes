@@ -7,7 +7,7 @@
         <v-row class="ma-0 position-relative">
             <v-col
                 class="base-content-container"
-                :class="{ 'v-col-lg-4 v-col-md-2 v-col-sm-12': height > 200 }"
+                :class="{ 'base-content-container-responsive': height >= 200 }"
             >
                 <base-header-content
                     :height="height"
@@ -16,8 +16,7 @@
                 />
             </v-col>
             <v-col
-                class="image-container
-          v-col-lg-8 v-col-md-10 v-col-sm-12"
+                class="image-container"
                 :style="{ height: height + 'px'  }"
                 v-if="height > 200"
             >
@@ -56,8 +55,25 @@
     }
 
     .base-content-container {
+        background-color: white;
         padding: 0;
-        z-index: 3
+        z-index: 3;
+    }
+
+    .base-content-container-responsive {
+      max-width: 30% !important;
+
+      @media(max-width: 1400px) {
+        max-width: 40% !important;
+      }
+
+      @media(max-width: 1080px) {
+        max-width: 50% !important;
+      }
+
+      @media (max-width: 960px) {
+        max-width: 100% !important;
+      }
     }
 
     .image-container {

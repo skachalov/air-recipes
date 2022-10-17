@@ -4,7 +4,7 @@
         fluid
     >
         <v-container
-            class="ps-16 pe-16"
+            class="main-page-container ps-16 pe-16"
             fluid
         >
             <base-progress
@@ -13,7 +13,7 @@
             />
             <base-warning
                 v-else-if="!getRecipes.length"
-                :warn="'Recipes not found'"
+                :warn="'Recipes with this parameters not found'"
             />
             <v-row class="pt-8 cards-container">
                 <transition-group name="base-cards">
@@ -44,6 +44,11 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
         grid-gap: 0.25em;
+    }
+
+    .main-page-container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
 
     .base-cards-item {

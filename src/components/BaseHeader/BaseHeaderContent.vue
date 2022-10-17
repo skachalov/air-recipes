@@ -11,7 +11,7 @@
         >
             <base-header-content-title :height="height"/>
             <base-header-content-search-bar
-                class="s-b"
+                class="search-bar"
                 :height="height"
                 @clickFilterButton="clickFilterButton"
                 @searchRecipes="searchRecipes"
@@ -80,5 +80,12 @@
             opacity: 0;
             padding-top: 30px;
         }
+    }
+
+    .search-bar {
+      @media(max-width: 960px) {
+        max-width: 100% !important;
+        margin: 0 auto;
+      }
     }
 </style>

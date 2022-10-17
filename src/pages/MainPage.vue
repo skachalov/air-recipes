@@ -39,11 +39,16 @@
     })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .cards-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
         grid-gap: 0.25em;
+
+        @media(max-width: 390px) {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
     }
 
     .main-page-container {

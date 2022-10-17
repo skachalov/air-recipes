@@ -1,13 +1,5 @@
 <template>
-<<<<<<< HEAD
   <app-controller />
-</template>
-
-<script setup>
-  import AppController from "@/controllers/AppController"
-</script>
-=======
-    <app-controller/>
 </template>
 
 <script setup>
@@ -25,4 +17,3 @@
         font-weight: normal;
     }
 </style>
->>>>>>> recipes-5-refactoring

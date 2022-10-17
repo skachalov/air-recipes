@@ -1,19 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <main-page
-      :getRecipes="$store.getters.getRecipes"
-  />
-</template>
-
-<script setup>
-  import MainPage from "@/pages/MainPage"
-  import { onMounted } from "vue"
-  import { viewModel } from "@/storage"
-
-  onMounted(() => {
-    viewModel.getRecipesViewModal().fetchRecipes()
-  })
-=======
     <main-page :getRecipes="$store.getters.getRecipes"/>
 </template>
 
@@ -30,5 +15,4 @@
             viewModel.getRecipesViewModal().fetchRecipes()
         }
     })
->>>>>>> recipes-5-refactoring
 </script>

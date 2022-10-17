@@ -30,13 +30,17 @@
         inFocus.value = !inFocus.value
     }
 
-    defineProps({
+    const props = defineProps({
         modelValue: String
     })
     const emit = defineEmits(["update:modelValue", "clearButtonClicked"])
 
     function updateInput(event) {
-        emit("update:modelValue", event.target.value)
+        if (event.data === null) {
+          emit("update:modelValue", props.modelValue.slice(0, props.modelValue.length - 1))
+          return
+        }
+        emit("update:modelValue", `${props.modelValue}${event.data}`)
     }
 
     function clearInput() {

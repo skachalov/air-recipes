@@ -43,7 +43,7 @@
 <style lang="scss" scoped>
     .base-header-content {
         position: fixed;
-        margin-top: 128px;
+        margin-top: 120px;
         margin-left: 98px;
         height: 192px;
         width: 348px;

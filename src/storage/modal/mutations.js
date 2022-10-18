@@ -4,7 +4,7 @@ export default {
     },
 
     changeIsAnyFilter(state, value) {
-        console.log(value)
+        // console.log(value)
         state.isAnyFilter = value
     }
 }

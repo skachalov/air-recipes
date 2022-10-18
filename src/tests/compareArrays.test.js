@@ -1,6 +1,6 @@
 import { compareArrays } from "../helpers/compareArrays";
 
-describe('First letter to upper', () => {
+describe('Compare arrays', () => {
     test.each([
         { input: [[4, 8, 15, 16, 23, 42], [4, 8, 15, 16, 23, 42]], expected: true, name: "Function with same arrays returns true" },
         { input: [[4, 8, 15, 16, 23, 42], [16, 42, 15, 4, 23, 8]], expected: true, name: "Function with arrays with shuffled same values returns true" },

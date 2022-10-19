@@ -24,7 +24,7 @@
 <script setup>
     import { defineEmits } from "vue"
 
-    const emits = defineEmits("closeModal")
+    const emits = defineEmits(["closeModal"])
 
     function closeModal() {
         emits("closeModal")

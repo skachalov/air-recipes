@@ -52,7 +52,7 @@
     })
 
     const emits =
-        defineEmits(["closeModal", "clearPrams", "showRecipes", "updateSelected", "updateSelectedRange"])
+        defineEmits(["closeModal", "clearParams", "showRecipes", "updateSelected", "updateSelectedRange"])
 
     function closeModal() {
         emits("closeModal")

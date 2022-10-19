@@ -16,7 +16,7 @@
     let headerHeight = ref(600)
     let scrollReaction = ref(true)
 
-    const emits = defineEmits("changeHeaderHeight", "setScrollReaction", "changeScrollVar")
+    const emits = defineEmits(["changeHeaderHeight", "setScrollReaction", "changeScrollVar"])
 
     onMounted(() => {
         window.addEventListener('resize', () => updateWidth())

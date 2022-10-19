@@ -1,7 +1,7 @@
 <template>
     <v-chip
         class="base-chip"
-        variant="filter"
+        variant="elevated"
     >
         {{ text }}
     </v-chip>
@@ -18,6 +18,8 @@
 <style lang="scss" scoped>
     .base-chip {
         background-color: white;
+        color: black;
+        box-shadow: none;
         cursor: pointer;
 
         @media (max-width: 420px) {

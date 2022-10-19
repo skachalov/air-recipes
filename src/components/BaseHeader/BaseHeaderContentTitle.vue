@@ -13,7 +13,12 @@
                 class="title"
                 :class="{ 'full-height title-rolled' : height <= 192 }"
             >
+              <span
+                  style="cursor: pointer"
+                  @click="$router.push('/air-recipes/')"
+              >
                 Air Recipes
+              </span>
             </h1>
         </v-row>
         <v-row class="ma-0">

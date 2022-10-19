@@ -8,16 +8,19 @@
             fluid
         >
             <base-progress
-                v-if="!$store.state.recipes.recipes.length"
+                id="main-page-base-progress"
+                v-if="!isLoadedRecipes"
                 :warning="'Getting recipes list...'"
             />
             <base-warning
+                id="main-page-base-warning"
                 v-else-if="!getRecipes.length"
                 :warn="'Recipes with this parameters not found'"
             />
             <v-row class="pt-8 cards-container">
                 <transition-group name="base-cards">
                     <base-card
+                        class="main-page-base-card"
                         v-for="recipe in getRecipes"
                         :key="recipe.id"
                         :recipe="recipe"
@@ -35,6 +38,10 @@
     import BaseWarning from "@/components/UI/BaseWarning";
 
     defineProps({
+        isLoadedRecipes: {
+          type: Boolean,
+          default: false
+        },
         getRecipes: Array
     })
 </script>

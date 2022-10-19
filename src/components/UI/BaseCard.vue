@@ -33,7 +33,7 @@
 
 <script setup>
     import formatTime from "@/helpers/formatTime"
-    import cutWord from "@/helpers/cutWord"
+    import { cutWord } from "@/helpers/cutWord"
     import BaseChip from "@/components/UI/BaseChip"
     import { defineProps } from "vue"
 

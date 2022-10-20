@@ -1,4 +1,4 @@
-import { compareArrays } from "../helpers/compareArrays";
+import { compareArrays } from "../../helpers/compareArrays";
 
 describe('Compare arrays', () => {
     test.each([

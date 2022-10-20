@@ -1,4 +1,4 @@
-import formatTime from "../helpers/formatTime"
+import formatTime from "../../helpers/formatTime"
 
 describe('Format time', () => {
     test.each([

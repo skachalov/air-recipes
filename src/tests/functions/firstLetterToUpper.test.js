@@ -1,4 +1,4 @@
-import { firstLetterToUpper } from "../helpers/firstLetterToUpper";
+import { firstLetterToUpper } from "../../helpers/firstLetterToUpper";
 
 describe('First letter to upper', () => {
     test.each([

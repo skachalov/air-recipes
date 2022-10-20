@@ -1,4 +1,4 @@
-import { cutWord } from "../helpers/cutWord";
+import { cutWord } from "../../helpers/cutWord";
 
 describe('Cut word', () => {
     test.each([

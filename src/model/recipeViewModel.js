@@ -3,8 +3,13 @@ export default class RecipeViewModel {
         this._store = recipeStore
     }
 
-    fetchRecipe(id) {
-        this._store.dispatch("fetchRecipe", id)
+    async fetchRecipe(id) {
+        try {
+            await this._store.dispatch("fetchRecipe", id)
+        }
+        catch (e) {
+            throw Error
+        }
     }
 
     setRecipe(recipe) {

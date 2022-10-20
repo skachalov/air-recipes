@@ -1,6 +1,6 @@
 <template>
     <filter-modal
-        :is-loaded="$store.state.recipes.recipes.length"
+        :is-loaded="isLoaded"
         :cuisines="store.getters.getCuisines"
         :selected-cuisines="includedCuisines"
         :caloricity-range="caloricityRange"
@@ -20,8 +20,10 @@
     import { useStore } from "vuex"
     import { useRoute, useRouter } from "vue-router"
     import { viewModel } from "@/model/viewModelSingleton"
+    import { mainPageRoute } from "@/const/routes"
 
     const store = useStore()
+    let isLoaded = ref(false)
     let includedCuisines = ref([])
     let caloricityRange = ref([])
     let chosenCaloricity = ref([])
@@ -30,6 +32,7 @@
         if (!store.state.recipes.recipes.length) {
             await viewModel.getRecipesViewModal().fetchRecipes()
         }
+        isLoaded.value = true
         getChosenParams()
     })
 
@@ -62,8 +65,8 @@
     const router = useRouter()
 
     function showRecipes() {
-        if (route.path !== '/air-recipes/') {
-            router.push('/air-recipes/')
+        if (route.path !== mainPageRoute) {
+            router.push(mainPageRoute)
         }
 
         viewModel.getRecipesViewModal().setCuisinesIncluded(includedCuisines.value)

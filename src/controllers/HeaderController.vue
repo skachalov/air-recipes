@@ -11,6 +11,7 @@
     import { ref, onMounted, defineEmits } from "vue"
     import { viewModel } from "@/model/viewModelSingleton"
     import { useRoute, useRouter } from "vue-router"
+    import { mainPageRoute } from "@/const/routes"
 
     const DEFAULT_HEADER_HEIGHT = 600
     let headerHeight = ref(600)
@@ -64,8 +65,8 @@
     const router = useRouter()
 
     function searchRecipes(searchLine) {
-        if (route.path !== '/air-recipes/') {
-            router.push('/air-recipes/')
+        if (route.path !== mainPageRoute) {
+            router.push(mainPageRoute)
         }
 
         viewModel.getRecipesViewModal().setSearchLine(searchLine)

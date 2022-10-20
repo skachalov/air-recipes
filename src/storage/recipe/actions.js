@@ -6,10 +6,9 @@ export default {
         try {
             const response = await fetchGetRecipe(id)
             viewModel.getRecipeViewModal().setRecipe(response.data)
-
         }
         catch (e) {
-            console.log(e)
+            throw Error
         }
     },
 

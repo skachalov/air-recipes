@@ -15,7 +15,7 @@
             >
               <span
                   style="cursor: pointer"
-                  @click="$router.push('/air-recipes/')"
+                  @click="$router.push(mainPageRoute)"
               >
                 Air Recipes
               </span>
@@ -35,6 +35,7 @@
 
 <script setup>
     import { defineProps } from "vue"
+    import { mainPageRoute } from "@/const/routes"
 
     defineProps({
         height: Number

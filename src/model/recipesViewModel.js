@@ -3,8 +3,8 @@ export default class RecipesViewModel {
         this._store = recipesStore
     }
 
-    fetchRecipes() {
-        this._store.dispatch('fetchRecipes')
+    async fetchRecipes() {
+        await this._store.dispatch('fetchRecipes')
     }
 
     setRecipes(recipes) {

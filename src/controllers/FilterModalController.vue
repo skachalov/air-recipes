@@ -1,5 +1,6 @@
 <template>
     <filter-modal
+        :is-loaded="$store.state.recipes.recipes.length"
         :cuisines="store.getters.getCuisines"
         :selected-cuisines="includedCuisines"
         :caloricity-range="caloricityRange"
@@ -15,7 +16,6 @@
 
 <script setup>
     import FilterModal from "@/components/FilterModal/FilterModal"
-    import { compareArrays } from "@/helpers/compareArrays"
     import { ref, onMounted, computed } from "vue"
     import { useStore } from "vuex"
     import { useRoute, useRouter } from "vue-router"
@@ -26,11 +26,14 @@
     let caloricityRange = ref([])
     let chosenCaloricity = ref([])
 
-    onMounted(() => {
-        getDefaultParams()
+    onMounted(  async () => {
+        if (!store.state.recipes.recipes.length) {
+            await viewModel.getRecipesViewModal().fetchRecipes()
+        }
+        getChosenParams()
     })
 
-    function getDefaultParams() {
+    function getChosenParams() {
         includedCuisines.value = [...store.state.recipes.cuisinesIncludedChosen]
         caloricityRange.value =
             [store.state.recipes.caloricityChosen.min, store.state.recipes.caloricityChosen.max]
@@ -42,17 +45,16 @@
     }
 
     const showClearButton = computed(() => {
-        if (!store.state.modal.isAnyFilter) return false
+        if (!includedCuisines.value.length
+            && !store.state.modal.isAnyFilter) return false
 
-        return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
-            && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
-            && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
+        return store.state.modal.isAnyFilter
     })
 
     function clearParams() {
         viewModel.getModalViewModel().changeIsAnyFilter(false)
         viewModel.getRecipesViewModal().setFilterParamsToDefault()
-        getDefaultParams()
+        getChosenParams()
         closeModal()
     }
 

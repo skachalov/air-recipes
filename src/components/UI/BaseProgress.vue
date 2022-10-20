@@ -11,13 +11,13 @@
             >
                 {{ warning }}
             </v-col>
-            <v-col cols="6">
-                <v-progress-linear
-                    color="teal"
+            <v-col cols="6"
+                   style="display: flex; justify-content: center"
+            >
+                <v-progress-circular
                     indeterminate
-                    rounded
-                    height="6"
-                ></v-progress-linear>
+                    color="green"
+                />
             </v-col>
         </v-row>
     </v-container>

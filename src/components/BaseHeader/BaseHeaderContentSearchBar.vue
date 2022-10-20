@@ -42,7 +42,7 @@
     }
 
     .text {
-        @media (max-width: 960px) {
+        @media (max-width: 948px) {
             display: flex;
             align-content: start;
             justify-content: center;
@@ -50,7 +50,7 @@
     }
 
     .input-container {
-        @media (max-width: 960px) {
+        @media (max-width: 948px) {
             max-width: 400px !important;
         }
         @media (max-width: 600px) {

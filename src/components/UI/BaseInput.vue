@@ -51,6 +51,6 @@
 
 <style>
     .base-input-text-field .v-icon {
-        color: rgba(169, 169, 169, 1) !important;
+        color: rgba(169, 169, 169, 1);
     }
 </style>

@@ -46,7 +46,7 @@
     .base-header-title {
         margin: 0;
 
-        @media (max-width: 960px) {
+        @media (max-width: 948px) {
             width: 100% !important;
         }
     }
@@ -57,7 +57,7 @@
     }
 
     .full-height {
-        height: 100% !important;
+        height: 100%;
     }
 
     .title {
@@ -65,8 +65,8 @@
         font-size: 64px;
         width: 100%;
 
-        @media(max-width: 960px) {
-            width: auto !important;
+        @media(max-width: 948px) {
+            width: auto;
         }
         @media (max-width: 600px) {
             font-size: 48px;

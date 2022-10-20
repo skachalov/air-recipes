@@ -66,18 +66,18 @@
     }
 
     .base-content-container-responsive {
-      max-width: 30% !important;
+      max-width: 30%;
 
       @media(max-width: 1400px) {
-        max-width: 40% !important;
+        max-width: 40%;
       }
 
       @media(max-width: 1080px) {
-        max-width: 50% !important;
+        max-width: 50%;
       }
 
-      @media (max-width: 960px) {
-        max-width: 100% !important;
+      @media (max-width: 948px) {
+        max-width: 100%;
       }
     }
 

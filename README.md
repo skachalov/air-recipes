@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-npm cli
+npm ci
 ```
 
 ### Compiles and hot-reloads for development

@@ -14,7 +14,9 @@
     })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import "@/styles/colors.scss";
+
     .li-item {
         display: flex;
         align-items: center;
@@ -24,7 +26,7 @@
     .count-bullet {
         min-width: 16px;
         height: 16px;
-        border: 1px solid #DDDDDD;
+        border: 1px solid $shade20;
         border-radius: 50%;
         margin-right: 8px;
         display: flex;

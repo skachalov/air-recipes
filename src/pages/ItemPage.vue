@@ -60,8 +60,8 @@
 <style lang="scss" scoped>
     .item-page {
         @media(max-width: 600px) {
-            padding-left: 20px !important;
-            padding-right: 0 !important;
+            padding-left: 20px;
+            padding-right: 0;
         }
     }
 

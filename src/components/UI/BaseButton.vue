@@ -15,14 +15,16 @@
     })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import "@/styles/colors.scss";
+
     .dark {
-        background-color: #82786A;
-        color: white;
+        background-color: $shade50;
+        color: $base1;
     }
 
     .light {
-        border-color: #DDDDDD;
-        color: #82786A;
+        border-color: $shade20;
+        color: $shade50;
     }
 </style>

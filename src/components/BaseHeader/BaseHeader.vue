@@ -48,9 +48,11 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "@/styles/colors.scss";
+
     .base-header {
         padding: 0;
-        background-color: white;
+        background-color: $base1;
         position: fixed;
         z-index: 2;
     }
@@ -60,7 +62,7 @@
     }
 
     .base-content-container {
-        background-color: white;
+        background-color: $base1;
         padding: 0;
         z-index: 3;
     }

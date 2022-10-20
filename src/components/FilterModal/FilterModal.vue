@@ -87,6 +87,8 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "@/styles/colors.scss";
+
     .container {
         position: fixed;
         padding: 0;
@@ -95,16 +97,16 @@
         align-items: center;
         height: 100vh;
         z-index: 3;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba($base1, 0.8);
     }
 
     .modal {
         position: fixed;
         height: 558px;
         width: 440px;
-        background-color: white;
+        background-color: $base1;
         z-index: 4;
-        box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.14);
+        box-shadow: 0px 16px 24px 0px rgba($base0, 0.14);
 
         @media (max-width: 470px) {
             width: 350px;

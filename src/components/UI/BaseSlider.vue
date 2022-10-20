@@ -28,27 +28,29 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+    @import "@/styles/colors.scss";
+
     .base-slider .v-slider-thumb__label {
         transform: translateY(-15%) translateY(-1px) translateX(-50%) rotate(45deg) !important;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: .75rem;
-        color: #fff;
+        color: $base1;
         width: 32px;
         height: 34px;
         border-radius: 50% 50% 0;
         bottom: 100%;
-        background-color: rgba(130, 120, 106, 1);
+        background-color: $shade50;
         user-select: none;
     }
 
     .base-slider .v-slider-thumb__label:before {
-        display: none !important;
+        display: none;
     }
 
     .base-slider .v-slider-thumb__label > div {
-        transform: rotate(-45deg) !important;
+        transform: rotate(-45deg);
     }
 </style>

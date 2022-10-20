@@ -26,7 +26,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import "@/styles/colors.scss";
+
     .base-checkbox {
         width: 90%;
         height: 47px;
@@ -43,7 +45,7 @@
     }
 
     .checkbox {
-        color: #82786A;
+        color: $shade50;
         display: flex;
         justify-content: end;
         align-items: start;

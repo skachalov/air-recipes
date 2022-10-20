@@ -4,7 +4,7 @@
         fluid
     >
         <v-container
-            class="main-page-container ps-16 pe-16"
+            class="main-page-container"
             fluid
         >
             <base-progress
@@ -46,14 +46,14 @@
         grid-gap: 0.25em;
 
         @media(max-width: 390px) {
-          margin-left: 0 !important;
-          margin-right: 0 !important;
+          margin-left: 0;
+          margin-right: 0;
         }
     }
 
     .main-page-container {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .base-cards-item {

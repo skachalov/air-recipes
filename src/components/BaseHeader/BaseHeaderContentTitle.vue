@@ -43,6 +43,8 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "@/styles/colors.scss";
+
     .base-header-title {
         margin: 0;
 
@@ -80,7 +82,7 @@
 
     .description {
         font-family: Roboto;
-        color: #82786A;
+        color: $shade50;
     }
 
     .padding {

@@ -1,5 +1,8 @@
 <template>
-    <main-page :getRecipes="$store.getters.getRecipes"/>
+    <main-page
+        :is-loaded-recipes="$store.state.recipes.recipes.length"
+        :getRecipes="$store.getters.getRecipes"
+    />
 </template>
 
 <script setup>

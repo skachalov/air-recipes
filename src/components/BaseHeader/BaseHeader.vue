@@ -19,7 +19,7 @@
             <v-col
                 class="image-container"
                 :style="{ height: height + 'px'  }"
-                v-if="height > 200"
+                v-show="height > 200"
             >
                 <base-header-image/>
             </v-col>

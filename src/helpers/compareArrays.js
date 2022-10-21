@@ -1,8 +1,8 @@
 /**
- * Сравнение двух массивов
- * @param {array} arr1 - первый массив
- * @param {array} arr2 - второй массив
- * @returns {boolean} - результат сравнения массивов arr1 и arr2
+ * @desc Comparing two arrays
+ * @param {array} arr1 - first array
+ * @param {array} arr2 - second array
+ * @returns {boolean} - result of comparing arrays arr1 and arr2
  */
 
 export function compareArrays(arr1, arr2) {

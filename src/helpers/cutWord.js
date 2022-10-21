@@ -1,8 +1,8 @@
 /**
- * Обрезание слова до указанной длины
- * @param {string} word - слово, которое надо обрезать
- * @param {number} len - количество символов, которое надо оставить в строке
- * @returns {string} - обрезанная строка word до длины len
+ * @desc Truncate a word to a specified length
+ * @param {string} word - word to cut
+ * @param {number} len - the number of symbols to be left in the string
+ * @returns {string} - truncated string word to length len
  */
 
 export function cutWord(word, len = 170) {

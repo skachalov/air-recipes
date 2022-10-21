@@ -1,7 +1,7 @@
 /**
- * Преобразование секунд в минуты или часы
- * @param {number} time - секунды
- * @returns {string} - строка с представлением time в минутах или часах
+ * @desc Convert seconds to minutes or hours
+ * @param {number} time - seconds
+ * @returns {string} - a string representing time in minutes or hours
  */
 
 export default function formatTime(time) {
@@ -11,9 +11,9 @@ export default function formatTime(time) {
 }
 
 /**
- * Округление числа до одного знака после запятой, если оно не является целым
- * @param {number} number - число для округления
- * @returns {number} - преобразованное число number
+ * @desc Rounding a number to one decimal place if it is not an integer
+ * @param {number} number - number to round
+ * @returns {number} - converted number
  */
 
 function formatNumber(number) {

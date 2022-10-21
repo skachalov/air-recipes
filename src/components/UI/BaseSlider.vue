@@ -29,8 +29,6 @@
 </script>
 
 <style lang="scss">
-    @import "@/styles/colors.scss";
-
     .base-slider .v-slider-thumb__label {
         transform: translateY(-15%) translateY(-1px) translateX(-50%) rotate(45deg) !important;
         display: flex;

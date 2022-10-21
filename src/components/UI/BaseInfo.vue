@@ -23,8 +23,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/colors.scss";
-
     .base-info {
         margin-right: 33px;
     }

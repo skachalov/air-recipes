@@ -6,7 +6,7 @@
     import AppController from "@/controllers/AppController"
 </script>
 
-<style>
+<style lang="scss">
     html, body, #app {
         height: 100%;
     }

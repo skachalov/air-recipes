@@ -21,6 +21,7 @@
     import { useRoute, useRouter } from "vue-router"
     import { viewModel } from "@/model/viewModelSingleton"
     import { mainPageRoute } from "@/const/routes"
+    import { compareArrays } from "@/helpers/compareArrays"
 
     const store = useStore()
     let isLoaded = ref(false)
@@ -51,7 +52,9 @@
         if (!includedCuisines.value.length
             && !store.state.modal.isAnyFilter) return false
 
-        return store.state.modal.isAnyFilter
+        return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
+            && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
+            && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
     })
 
     function clearParams() {

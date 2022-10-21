@@ -87,8 +87,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/colors.scss";
-
     .container {
         position: fixed;
         padding: 0;

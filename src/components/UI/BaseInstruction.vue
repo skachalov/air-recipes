@@ -15,8 +15,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/colors.scss";
-
     .li-item {
         display: flex;
         align-items: center;

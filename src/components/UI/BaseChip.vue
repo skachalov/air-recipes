@@ -16,8 +16,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/colors.scss";
-
     .base-chip {
         background-color: $base1;
         color: $base0;

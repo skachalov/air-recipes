@@ -29,7 +29,7 @@
         if (!scrollReaction.value) return
 
         let scrollVar = Math.floor(window.pageYOffset)
-
+        console.log(scrollVar)
         if (scrollVar <= 328) {
             headerHeight.value = Math.floor(DEFAULT_HEADER_HEIGHT - scrollVar)
             emits("changeScrollVar", scrollVar)

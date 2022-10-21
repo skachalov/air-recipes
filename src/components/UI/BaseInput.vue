@@ -50,8 +50,6 @@
 </script>
 
 <style lang="scss">
-    @import "@/styles/colors.scss";
-
     .base-input-text-field .v-icon {
         color: $shade40;
     }

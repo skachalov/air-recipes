@@ -16,8 +16,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/colors.scss";
-
     .dark {
         background-color: $shade50;
         color: $base1;

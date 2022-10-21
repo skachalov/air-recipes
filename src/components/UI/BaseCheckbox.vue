@@ -27,8 +27,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/colors.scss";
-
     .base-checkbox {
         width: 90%;
         height: 47px;

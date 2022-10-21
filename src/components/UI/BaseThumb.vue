@@ -16,8 +16,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/colors.scss";
-
     .base-thumb {
         height: 56px;
         width: 56px;

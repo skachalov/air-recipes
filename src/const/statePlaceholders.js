@@ -1,0 +1,1 @@
+export const CALORICITY_PLACEHOLDER = { min: 0, max: Number.MAX_VALUE }

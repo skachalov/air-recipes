@@ -7,7 +7,7 @@ export default class RecipeViewModel {
         try {
             await this._store.dispatch("fetchRecipe", id)
         }
-        catch (e) {
+        catch {
             throw Error
         }
     }

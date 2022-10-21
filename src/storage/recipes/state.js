@@ -1,8 +1,10 @@
+import { CALORICITY_PLACEHOLDER } from "@/const/statePlaceholders"
+
 export default {
     recipes: [],
     searchLine: "",
-    caloricityDefault: { min: 0, max: 100 },
-    caloricityChosen: { min: 0, max: 100 },
+    caloricityDefault: { ...CALORICITY_PLACEHOLDER },
+    caloricityChosen: { ...CALORICITY_PLACEHOLDER },
     cuisinesIncludedDefault: [],
     cuisinesIncludedChosen: []
 }

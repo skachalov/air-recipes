@@ -7,7 +7,7 @@ export default {
             const response = await fetchGetRecipe(id)
             viewModel.getRecipeViewModal().setRecipe(response.data)
         }
-        catch (e) {
+        catch {
             throw Error
         }
     },

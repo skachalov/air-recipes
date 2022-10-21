@@ -16,7 +16,7 @@
         try {
             await viewModel.getRecipeViewModal().fetchRecipe(route.params.id)
         }
-        catch (e) {
+        catch {
             router.push(mainPageRoute)
         }
     })

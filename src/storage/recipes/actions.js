@@ -1,13 +1,14 @@
 import { fetchGetRecipes } from "@/services/API/recipes"
 import { viewModel } from "@/model/viewModelSingleton"
+import { localStorageInterface } from "@/localStorage/localStorageInterface"
 
 export default {
     async fetchRecipes(context) {
         try {
             const response = await fetchGetRecipes()
             viewModel.getRecipesViewModal().setRecipes(response.data)
-            viewModel.getRecipesViewModal().setCuisines(context.getters.getCuisinesId)
-            viewModel.getRecipesViewModal().setMaxAndMinCaloricity(context.getters.getCaloricityRange)
+            localStorageInterface.setCuisines(context.getters.getCuisinesId)
+            localStorageInterface.setCaloricity(context.getters.getCaloricityRange)
         }
         catch (e) {
             console.log(e)
@@ -16,22 +17,28 @@ export default {
     setRecipes({ commit }, recipes) {
         commit('setRecipes', recipes)
     },
-    setSearchLine({ commit }, searchLine) {
-        commit('setSearchLine', searchLine)
+    setSearchLine(context, searchLine) {
+        localStorageInterface.setSearchLine(searchLine)
+        context.commit("setFilteredRecipes", context.getters.getRecipes)
     },
-    setCuisines({ commit }, cuisinesIdxs) {
-        commit('setCuisines', cuisinesIdxs)
+    setCuisines(context, cuisinesIdxs) {
+        localStorageInterface.setCuisines(cuisinesIdxs)
+        context.commit("setFilteredRecipes", context.getters.getRecipes)
     },
-    setCuisinesIncluded({ commit }, cuisinesIdxs) {
-        commit('setCuisinesIncluded', cuisinesIdxs)
+    setCuisinesIncluded(context, cuisinesIdxs) {
+        localStorageInterface.setCuisinesChosen(cuisinesIdxs)
+        context.commit("setFilteredRecipes", context.getters.getRecipes)
     },
-    setMaxAndMinCaloricity({ commit }, caloricity) {
-        commit('setMaxAndMinCaloricity', caloricity)
+    setMaxAndMinCaloricity(context, caloricity) {
+        localStorageInterface.setCaloricity(caloricity)
+        context.commit("setFilteredRecipes", context.getters.getRecipes)
     },
-    setMaxAndMinCaloricityChosen({ commit }, caloricity) {
-        commit('setMaxAndMinCaloricityChosen', caloricity)
+    setMaxAndMinCaloricityChosen(context, caloricity) {
+        localStorageInterface.setCaloricityChosen(caloricity)
+        context.commit("setFilteredRecipes", context.getters.getRecipes)
     },
-    setFilterParamsToDefault({ commit }) {
-        commit('setFilterParamsToDefault')
+    setFilterParamsToDefault(context) {
+        localStorageInterface.setParamsToDefault()
+        context.commit("setFilteredRecipes", context.getters.getRecipes)
     }
 }

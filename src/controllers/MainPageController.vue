@@ -1,5 +1,5 @@
 <template>
-    <main-page :getRecipes="$store.getters.getRecipes"/>
+    <main-page :getRecipes="$store.state.recipes.filteredRecipes"/>
 </template>
 
 <script setup>
@@ -13,12 +13,12 @@
     const store = useStore()
     const router = useRouter()
 
-    onMounted(() => {
+    onMounted(async () => {
         if (router.currentRoute.value.fullPath !== mainPageRoute) {
             router.push(mainPageRoute)
         }
         if (!store.state.recipes.recipes.length) {
-            viewModel.getRecipesViewModal().fetchRecipes()
+            await viewModel.getRecipesViewModal().fetchRecipes()
         }
     })
 </script>

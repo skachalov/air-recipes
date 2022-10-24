@@ -9,7 +9,7 @@
         >
             <base-progress
                 id="main-page-base-progress"
-                v-if="!isLoadedRecipes"
+                v-if="!$store.state.recipes.recipes.length"
                 :warning="'Getting recipes list...'"
             />
             <base-warning
@@ -38,10 +38,6 @@
     import BaseWarning from "@/components/UI/BaseWarning";
 
     defineProps({
-        isLoadedRecipes: {
-          type: Boolean,
-          default: false
-        },
         getRecipes: Array
     })
 </script>

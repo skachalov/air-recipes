@@ -1,5 +1,7 @@
 <template>
-    <main-page :getRecipes="$store.state.recipes.filteredRecipes"/>
+    <main-page
+        :getRecipes="$store.state.recipes.filteredRecipes"
+    />
 </template>
 
 <script setup>

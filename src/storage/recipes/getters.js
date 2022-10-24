@@ -1,11 +1,14 @@
+import { localStorageInterface } from "@/localStorage/localStorageInterface"
+
 export default {
     getRecipes(state) {
-        const regex = new RegExp('^' + state.searchLine, 'i')
-        const cuisineInChosenList = cuisineId => state.cuisinesIncludedChosen.includes(cuisineId)
+        const regex = new RegExp('^' + localStorageInterface.getSearchLine(), 'i')
+        const cuisineInChosenList = cuisineId =>
+            localStorageInterface.getCuisinesIncludedChosen().includes(cuisineId)
 
         return state.recipes.filter(r => regex.test(r.title)
-            && r.caloricity >= state.caloricityChosen.min
-            && r.caloricity <= state.caloricityChosen.max
+            && r.caloricity >= localStorageInterface.getCaloricityChosen().min
+            && r.caloricity <= localStorageInterface.getCaloricityChosen().max
             && cuisineInChosenList(r.cuisine.id))
     },
     getCuisines(state) {

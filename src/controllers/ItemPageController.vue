@@ -5,20 +5,20 @@
 <script setup>
     import { onMounted, onUnmounted } from "vue"
     import ItemPage from "@/pages/ItemPage"
-    import { useRoute } from "vue-router"
-    import { useStore } from "vuex"
+    import { useRoute, useRouter } from "vue-router"
     import { viewModel } from "@/model/viewModelSingleton"
-
-    const store = useStore()
+    import { mainPageRoute } from "@/const/routes"
 
     const route = useRoute()
+    const router = useRouter()
 
-    onMounted(() => {
-        if (!store.state.recipes.recipes.length) {
-            viewModel.getRecipesViewModal().fetchRecipes()
+    onMounted(async () => {
+        try {
+            await viewModel.getRecipeViewModal().fetchRecipe(route.params.id)
         }
-
-        viewModel.getRecipeViewModal().fetchRecipe(route.params.id)
+        catch {
+            router.push(mainPageRoute)
+        }
     })
 
     onUnmounted(() => {

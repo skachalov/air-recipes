@@ -83,8 +83,8 @@
     }
 
     .search-bar {
-      @media(max-width: 960px) {
-        max-width: 100% !important;
+      @media(max-width: 948px) {
+        max-width: 100%;
         margin: 0 auto;
       }
     }

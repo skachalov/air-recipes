@@ -1,12 +1,12 @@
 <template>
   <img
-      :src="imageURL"
+      :src="image"
       class="base-header-image"
   />
 </template>
 
 <script setup>
-import {imageURL} from "@/const/URL"
+import image from "@/assets/images/headerImage.png"
 </script>
 
 <style lang="scss" scoped>

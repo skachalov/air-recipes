@@ -15,7 +15,7 @@
     })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .base-thumb {
         height: 56px;
         width: 56px;
@@ -29,6 +29,6 @@
     }
 
     .active-border {
-        border: 2px solid black;
+        border: 2px solid $base0;
     }
 </style>

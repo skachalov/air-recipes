@@ -22,13 +22,13 @@
     })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .base-info {
         margin-right: 33px;
     }
 
     .base-info-icon {
-        color: rgba(200, 200, 200, 1);
+        color: $shade40;
         margin-right: 10px;
     }
 </style>

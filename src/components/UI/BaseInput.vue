@@ -49,8 +49,8 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     .base-input-text-field .v-icon {
-        color: rgba(169, 169, 169, 1) !important;
+        color: $shade40;
     }
 </style>

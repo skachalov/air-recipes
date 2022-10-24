@@ -1,8 +1,5 @@
 <template>
-    <main-page
-        :is-loaded-recipes="$store.state.recipes.recipes.length"
-        :getRecipes="$store.getters.getRecipes"
-    />
+    <main-page :getRecipes="$store.state.recipes.filteredRecipes"/>
 </template>
 
 <script setup>
@@ -10,12 +7,18 @@
     import { onMounted } from "vue"
     import { useStore } from "vuex"
     import { viewModel } from "@/model/viewModelSingleton"
+    import { useRouter } from "vue-router"
+    import { mainPageRoute } from "@/const/routes"
 
     const store = useStore()
+    const router = useRouter()
 
-    onMounted(() => {
+    onMounted(async () => {
+        if (router.currentRoute.value.fullPath !== mainPageRoute) {
+            router.push(mainPageRoute)
+        }
         if (!store.state.recipes.recipes.length) {
-            viewModel.getRecipesViewModal().fetchRecipes()
+            await viewModel.getRecipesViewModal().fetchRecipes()
         }
     })
 </script>

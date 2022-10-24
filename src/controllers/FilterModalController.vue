@@ -1,5 +1,6 @@
 <template>
     <filter-modal
+        :is-loaded="isLoaded"
         :cuisines="store.getters.getCuisines"
         :selected-cuisines="includedCuisines"
         :caloricity-range="caloricityRange"
@@ -15,25 +16,32 @@
 
 <script setup>
     import FilterModal from "@/components/FilterModal/FilterModal"
-    import { compareArrays } from "@/helpers/compareArrays"
     import { ref, onMounted, computed } from "vue"
     import { useStore } from "vuex"
     import { useRoute, useRouter } from "vue-router"
     import { viewModel } from "@/model/viewModelSingleton"
+    import { mainPageRoute } from "@/const/routes"
+    import { compareArrays } from "@/helpers/compareArrays"
+    import { localStorageInterface } from "@/localStorage/localStorageInterface"
 
     const store = useStore()
+    let isLoaded = ref(false)
     let includedCuisines = ref([])
     let caloricityRange = ref([])
     let chosenCaloricity = ref([])
 
-    onMounted(() => {
-        getDefaultParams()
+    onMounted(  async () => {
+        if (!store.state.recipes.recipes.length) {
+            await viewModel.getRecipesViewModal().fetchRecipes()
+        }
+        isLoaded.value = true
+        getChosenParams()
     })
 
-    function getDefaultParams() {
-        includedCuisines.value = [...store.state.recipes.cuisinesIncludedChosen]
+    function getChosenParams() {
+        includedCuisines.value = [...localStorageInterface.getCuisinesIncludedChosen()]
         caloricityRange.value =
-            [store.state.recipes.caloricityChosen.min, store.state.recipes.caloricityChosen.max]
+            [localStorageInterface.getCaloricityChosen().min, localStorageInterface.getCaloricityChosen().max]
         chosenCaloricity.value = [...caloricityRange.value]
     }
 
@@ -42,17 +50,18 @@
     }
 
     const showClearButton = computed(() => {
-        if (!store.state.modal.isAnyFilter) return false
+        if (!includedCuisines.value.length
+            && !store.state.modal.isAnyFilter) return false
 
-        return !(compareArrays(includedCuisines.value, store.state.recipes.cuisinesIncludedDefault)
-            && chosenCaloricity.value[0] === store.state.recipes.caloricityDefault.min
-            && chosenCaloricity.value[1] === store.state.recipes.caloricityDefault.max)
+        return !(compareArrays(includedCuisines.value, localStorageInterface.getCuisinesIncludedDefault())
+            && chosenCaloricity.value[0] === localStorageInterface.getCaloricityDefault().min
+            && chosenCaloricity.value[1] === localStorageInterface.getCaloricityDefault().max)
     })
 
     function clearParams() {
         viewModel.getModalViewModel().changeIsAnyFilter(false)
         viewModel.getRecipesViewModal().setFilterParamsToDefault()
-        getDefaultParams()
+        getChosenParams()
         closeModal()
     }
 
@@ -60,8 +69,8 @@
     const router = useRouter()
 
     function showRecipes() {
-        if (route.path !== '/air-recipes/') {
-            router.push('/air-recipes/')
+        if (route.path !== mainPageRoute) {
+            router.push(mainPageRoute)
         }
 
         viewModel.getRecipesViewModal().setCuisinesIncluded(includedCuisines.value)

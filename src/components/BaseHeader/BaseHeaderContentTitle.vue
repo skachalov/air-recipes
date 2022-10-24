@@ -9,12 +9,12 @@
             class="ma-0 justify-center"
             :class="{ 'full-height': height <= 192 }"
         >
-            <h1
-                class="title"
-                :class="{ 'full-height title-rolled' : height <= 192 }"
+            <router-link :to="mainPageRoute"
+                         class="title"
+                         :class="{ 'full-height title-rolled' : height <= 192 }"
             >
                 Air Recipes
-            </h1>
+            </router-link>
         </v-row>
         <v-row class="ma-0">
         <span
@@ -30,6 +30,7 @@
 
 <script setup>
     import { defineProps } from "vue"
+    import { mainPageRoute } from "@/const/routes"
 
     defineProps({
         height: Number
@@ -40,7 +41,7 @@
     .base-header-title {
         margin: 0;
 
-        @media (max-width: 960px) {
+        @media (max-width: 948px) {
             width: 100% !important;
         }
     }
@@ -51,16 +52,18 @@
     }
 
     .full-height {
-        height: 100% !important;
+        height: 100%;
     }
 
     .title {
+        text-decoration: none;
         font-family: "Gilroy ExtraBold";
         font-size: 64px;
+        color: $base0;
         width: 100%;
 
-        @media(max-width: 960px) {
-            width: auto !important;
+        @media(max-width: 948px) {
+            width: auto;
         }
         @media (max-width: 600px) {
             font-size: 48px;
@@ -74,7 +77,7 @@
 
     .description {
         font-family: Roboto;
-        color: #82786A;
+        color: $shade50;
     }
 
     .padding {

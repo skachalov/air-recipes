@@ -17,11 +17,7 @@
 <script setup>
     import BaseFilterButton from "@/components/UI/BaseFilterButton"
     import BaseInput from "@/components/UI/BaseInput"
-    import { ref, defineEmits, defineProps } from "vue"
-
-    defineProps({
-        height: Number
-    })
+    import { ref, defineEmits } from "vue"
 
     const searchLine = ref("")
     const emits = defineEmits(['clickFilterButton', 'searchRecipes'])
@@ -46,7 +42,7 @@
     }
 
     .text {
-        @media (max-width: 960px) {
+        @media (max-width: 948px) {
             display: flex;
             align-content: start;
             justify-content: center;
@@ -54,7 +50,7 @@
     }
 
     .input-container {
-        @media (max-width: 960px) {
+        @media (max-width: 948px) {
             max-width: 400px !important;
         }
         @media (max-width: 600px) {

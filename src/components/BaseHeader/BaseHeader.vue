@@ -1,6 +1,7 @@
 <template>
     <v-container
-        class="base-header"
+        class="pa-0 position-fixed"
+        style="z-index: 2"
         :class="{ 'base-header-shadow': height < 600 }"
         :style="{ height: height + 'px' }"
         fluid
@@ -48,36 +49,29 @@
 </script>
 
 <style lang="scss" scoped>
-    .base-header {
-        padding: 0;
-        background-color: white;
-        position: fixed;
-        z-index: 2;
-    }
-
     .base-header-shadow {
-        box-shadow: 0px 3px 8px -3px rgba(34, 60, 80, 0.2);
+        box-shadow: 0px 3px 8px -3px $shade20;
     }
 
     .base-content-container {
-        background-color: white;
+        background-color: $base1;
         padding: 0;
         z-index: 3;
     }
 
     .base-content-container-responsive {
-      max-width: 30% !important;
+      max-width: 30%;
 
       @media(max-width: 1400px) {
-        max-width: 40% !important;
+        max-width: 40%;
       }
 
       @media(max-width: 1080px) {
-        max-width: 50% !important;
+        max-width: 50%;
       }
 
-      @media (max-width: 960px) {
-        max-width: 100% !important;
+      @media (max-width: 948px) {
+        max-width: 100%;
       }
     }
 

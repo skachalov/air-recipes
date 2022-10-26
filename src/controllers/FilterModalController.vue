@@ -22,7 +22,7 @@
     import { viewModel } from "@/model/viewModelSingleton"
     import { mainPageRoute } from "@/const/routes"
     import { compareArrays } from "@/helpers/compareArrays"
-    import { localStorageInterface } from "@/localStorage/localStorageInterface"
+    import { localStorageRepository } from "@/services/localStorageRepository"
 
     const store = useStore()
     let isLoaded = ref(false)
@@ -39,9 +39,9 @@
     })
 
     function getChosenParams() {
-        includedCuisines.value = [...localStorageInterface.getCuisinesIncludedChosen()]
+        includedCuisines.value = [...localStorageRepository.getCuisinesIncludedChosen()]
         caloricityRange.value =
-            [localStorageInterface.getCaloricityChosen().min, localStorageInterface.getCaloricityChosen().max]
+            [localStorageRepository.getCaloricityChosen().min, localStorageRepository.getCaloricityChosen().max]
         chosenCaloricity.value = [...caloricityRange.value]
     }
 
@@ -53,9 +53,9 @@
         if (!includedCuisines.value.length
             && !store.state.modal.isAnyFilter) return false
 
-        return !(compareArrays(includedCuisines.value, localStorageInterface.getCuisinesIncludedDefault())
-            && chosenCaloricity.value[0] === localStorageInterface.getCaloricityDefault().min
-            && chosenCaloricity.value[1] === localStorageInterface.getCaloricityDefault().max)
+        return !(compareArrays(includedCuisines.value, localStorageRepository.getCuisinesIncludedDefault())
+            && chosenCaloricity.value[0] === localStorageRepository.getCaloricityDefault().min
+            && chosenCaloricity.value[1] === localStorageRepository.getCaloricityDefault().max)
     })
 
     function clearParams() {

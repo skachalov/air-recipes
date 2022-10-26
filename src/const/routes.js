@@ -1,1 +1,1 @@
-export const mainPageRoute = "/air-recipes/"
+export const mainPageRoute = "/"

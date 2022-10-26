@@ -25,7 +25,7 @@
                 <v-row class="modal-slider">
                     <base-slider
                         style="height: 32px"
-                        :range="localStorageInterface.getCaloricityDefault()"
+                        :range="localStorageRepository.getCaloricityDefault()"
                         :selected="chosenCaloricity"
                         @updateSelectedRange="updateSelectedRange"
                     />
@@ -49,7 +49,7 @@
     import FilterModalHeader from "@/components/FilterModal/FilterModalHeader"
     import FilterModalFooter from "@/components/FilterModal/FilterModalFooter"
     import BaseProgress from "@/components/UI/BaseProgress"
-    import { localStorageInterface } from "@/localStorage/localStorageInterface"
+    import { localStorageRepository } from "@/services/localStorageRepository"
 
     defineProps({
         isLoaded: {

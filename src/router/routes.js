@@ -7,7 +7,7 @@ export const routes = [
         component: MainPageController
     },
     {
-        path: "/air-recipes/:id",
+        path: "/:id",
         component: ItemPageController
     }
 ]

@@ -1,7 +1,7 @@
 import { CALORICITY_PLACEHOLDER } from "@/const/statePlaceholders"
 import Parser from "@/helpers/parser"
 
-class LocalStorageInterface {
+class LocalStorageRepository {
     constructor() {
         localStorage.setItem("searchLine", "")
         localStorage.setItem("caloricityDefault", Parser.collectionToString(CALORICITY_PLACEHOLDER))
@@ -58,4 +58,4 @@ class LocalStorageInterface {
     }
 }
 
-export const localStorageInterface = new LocalStorageInterface()
+export const localStorageRepository = new LocalStorageRepository()

@@ -1,5 +1,5 @@
 import { CALORICITY_PLACEHOLDER } from "@/const/statePlaceholders"
-import Parser from "@/helpers/parser"
+import Parser from "@/helpers/classes/parser"
 
 class LocalStorageRepository {
     constructor() {

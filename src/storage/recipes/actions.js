@@ -3,10 +3,14 @@ import { localStorageRepository } from "@/services/localStorageRepository"
 import RecipesParametersSetter from "@/helpers/classes/RecipesParametersSetter"
 
 export default {
-    async fetchRecipes() {
+    async fetchRecipes(context) {
         try {
             const response = await fetchGetRecipes()
+
+            // facade pattern
             RecipesParametersSetter.SetParameters(response.data.recipes)
+
+            context.commit("setFilteredRecipes", context.getters.getRecipes)
         }
         catch (e) {
             console.log(e)
@@ -20,6 +24,10 @@ export default {
     },
     setSearchLine(context, searchLine) {
         localStorageRepository.setSearchLine(searchLine)
+        context.commit("setFilteredRecipes", context.getters.getRecipes)
+    },
+    setSortingType(context, sortingType) {
+        localStorageRepository.setSortingType(sortingType)
         context.commit("setFilteredRecipes", context.getters.getRecipes)
     },
     setCuisinesIncluded(context, cuisinesIdxs) {

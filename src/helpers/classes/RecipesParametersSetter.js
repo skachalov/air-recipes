@@ -1,5 +1,5 @@
 import { viewModel } from "@/model/viewModelSingleton"
-import {localStorageRepository} from "@/services/localStorageRepository"
+import { localStorageRepository } from "@/services/localStorageRepository"
 
 export default class RecipesParametersSetter {
     static SetParameters(recipes) {

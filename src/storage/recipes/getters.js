@@ -1,4 +1,5 @@
 import { localStorageRepository } from "@/services/localStorageRepository"
+import { SortingFactory } from "@/helpers/classes/sorting/SortingFactory"
 
 export default {
     getRecipes(state) {
@@ -6,9 +7,13 @@ export default {
         const cuisineInChosenList = cuisineId =>
             localStorageRepository.getCuisinesIncludedChosen().includes(cuisineId)
 
-        return state.recipes.filter(r => regex.test(r.title)
+        const filtered = state.recipes.filter(r => regex.test(r.title)
             && r.caloricity >= localStorageRepository.getCaloricityChosen().min
             && r.caloricity <= localStorageRepository.getCaloricityChosen().max
             && cuisineInChosenList(r.cuisine.id))
+
+        // factory pattern
+        const sorting = SortingFactory.CreateSorting(localStorageRepository.getSortingType())
+        return sorting.sort(filtered)
     }
 }

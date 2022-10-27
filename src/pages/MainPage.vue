@@ -15,8 +15,16 @@
             <base-warning
                 id="main-page-base-warning"
                 v-else-if="!getRecipes.length"
-                :warn="'Recipes with this parameters not found'"
+                :warn="'Recipes with these parameters not found'"
             />
+            <v-row>
+                <base-select
+                    :value="sortingType"
+                    :options="Object.values(SortingType)"
+                    style="margin-left: 10%; margin-top: 20px;"
+                    @updateValue="setSortingType"
+                />
+            </v-row>
             <v-row class="pt-8 cards-container">
                 <transition-group name="base-cards">
                     <base-card
@@ -34,19 +42,29 @@
 <script setup>
     import BaseCard from "@/components/UI/BaseCard"
     import BaseProgress from "@/components/UI/BaseProgress"
-    import { defineProps } from "vue"
-    import BaseWarning from "@/components/UI/BaseWarning";
+    import { defineProps, defineEmits } from "vue"
+    import BaseWarning from "@/components/UI/BaseWarning"
+    import BaseSelect from "@/components/UI/BaseSelect"
+    import SortingType from "@/helpers/classes/sorting/SortingType"
 
     defineProps({
-        getRecipes: Array
+        getRecipes: Array,
+        sortingType: String
     })
+
+    const emits = defineEmits(["setSortingType"])
+
+    function setSortingType(sortingType) {
+        emits("setSortingType", sortingType)
+    }
 </script>
 
 <style lang="scss" scoped>
     .cards-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        grid-template-columns: repeat(auto-fill, 370px);
         grid-gap: 0.25em;
+        justify-content: center;
 
         @media(max-width: 390px) {
           margin-left: 0;

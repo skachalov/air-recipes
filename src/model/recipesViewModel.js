@@ -4,7 +4,7 @@ export default class RecipesViewModel {
     }
 
     async fetchRecipes() {
-        await this._store.dispatch('fetchRecipes')
+        await this._store.dispatch("fetchRecipes")
     }
 
     setRecipes(recipes) {
@@ -12,7 +12,11 @@ export default class RecipesViewModel {
     }
 
     setSearchLine(searchLine) {
-        this._store.dispatch('setSearchLine', searchLine)
+        this._store.dispatch("setSearchLine", searchLine)
+    }
+
+    setSortingType(sortingType) {
+        this._store.dispatch("setSortingType", sortingType)
     }
 
     setCuisinesList(cuisinesList) {

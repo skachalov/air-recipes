@@ -1,6 +1,8 @@
 <template>
     <main-page
         :getRecipes="$store.state.recipes.filteredRecipes"
+        :sorting-type="localStorageRepository.getSortingType()"
+        @setSortingType="setSortingType"
     />
 </template>
 
@@ -11,6 +13,7 @@
     import { viewModel } from "@/model/viewModelSingleton"
     import { useRouter } from "vue-router"
     import { mainPageRoute } from "@/const/routes"
+    import { localStorageRepository } from "@/services/localStorageRepository"
 
     const store = useStore()
     const router = useRouter()
@@ -23,4 +26,8 @@
             await viewModel.getRecipesViewModal().fetchRecipes()
         }
     })
+
+    function setSortingType(sortingType) {
+        viewModel.getRecipesViewModal().setSortingType(sortingType)
+    }
 </script>

@@ -1,9 +1,11 @@
 import { CALORICITY_PLACEHOLDER } from "@/const/statePlaceholders"
-import Parser from "@/helpers/parser"
+import Parser from "@/helpers/classes/parser"
+import SortingType from "@/helpers/classes/sorting/SortingType"
 
 class LocalStorageRepository {
     constructor() {
         localStorage.setItem("searchLine", "")
+        localStorage.setItem("sortingType", SortingType.title)
         localStorage.setItem("caloricityDefault", Parser.collectionToString(CALORICITY_PLACEHOLDER))
         localStorage.setItem("caloricityChosen", Parser.collectionToString(CALORICITY_PLACEHOLDER))
         localStorage.setItem("cuisinesIncludedDefault", Parser.collectionToString([]))
@@ -16,6 +18,14 @@ class LocalStorageRepository {
 
     getSearchLine() {
         return localStorage.getItem("searchLine")
+    }
+
+    setSortingType(sortingType) {
+        localStorage.setItem("sortingType", sortingType)
+    }
+
+    getSortingType() {
+        return localStorage.getItem("sortingType")
     }
 
     setCaloricity(caloricity) {

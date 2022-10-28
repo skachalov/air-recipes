@@ -33,7 +33,7 @@
     const computePadding = computed(() =>
         !scrollReaction.value
             ? '150px'
-            : headerHeight.value + scrollVar.value + 'px'
+            : headerHeight.value + scrollVar.value + 10 + 'px'
     )
 
     function changeHeaderHeight(height) {

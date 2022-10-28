@@ -1,7 +1,7 @@
 <template>
     <filter-modal
         :is-loaded="isLoaded"
-        :cuisines="store.getters.getCuisines"
+        :cuisines="$store.state.recipes.cuisinesList"
         :selected-cuisines="includedCuisines"
         :caloricity-range="caloricityRange"
         :chosen-caloricity="chosenCaloricity"

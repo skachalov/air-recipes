@@ -4,7 +4,7 @@ export default class RecipesViewModel {
     }
 
     async fetchRecipes() {
-        await this._store.dispatch('fetchRecipes')
+        await this._store.dispatch("fetchRecipes")
     }
 
     setRecipes(recipes) {
@@ -12,19 +12,19 @@ export default class RecipesViewModel {
     }
 
     setSearchLine(searchLine) {
-        this._store.dispatch('setSearchLine', searchLine)
+        this._store.dispatch("setSearchLine", searchLine)
     }
 
-    setCuisines(cuisinesIdxs) {
-        this._store.dispatch("setCuisines", cuisinesIdxs)
+    setSortingType(sortingType) {
+        this._store.dispatch("setSortingType", sortingType)
+    }
+
+    setCuisinesList(cuisinesList) {
+        this._store.dispatch("setCuisinesList", cuisinesList)
     }
 
     setCuisinesIncluded(cuisinesIdxs) {
         this._store.dispatch("setCuisinesIncluded", cuisinesIdxs)
-    }
-
-    setMaxAndMinCaloricity(caloricity) {
-        this._store.dispatch("setMaxAndMinCaloricity", caloricity)
     }
 
     setMaxAndMinCaloricityChosen(caloricity) {
